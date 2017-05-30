@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<!--
+	Overflow by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Acoustic Side Channel Attack on Enigma</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.poptrox.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<h1>Acoustic Side Channel Attack on Enigma</h1>
+					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Ehsan Toreini</a>, <a href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Brian Randell</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
+				</header>
+				<footer>
+					<a href="#banner" class="button style2 scrolly-middle">More...</a>
+				</footer>
+			</section>
+
+		<!-- Banner -->
+			<section id="banner">
+				<header>
+					<h2>Overview</h2>
+				</header>
+				<a href="#" class="image"><img src="images/1.jpg" alt="" /></a>
+				<div>
+				<p>This project is based on an interesting idea to investigate the possible effectiveness of a ""side-channel"" attack on the Enigma machine that exploited the noise made by the act of typing the source plaintext. 
+				We applied state-of-the-art signal processing and machine learning techniques to investigate the possibility of identifying the individual Enigma keys from the noises they made; 
+				We have used a simple microphone and a personal computer in order to record the samples.  
+				</p>
+				
+				<p>
+				<strong>In this website, We have uploaded the recorded sound of Enigma being typed by 32 different people to public access. You can use these recording for further investigations. </strong></p>
+				</div>
+				<footer>
+					<a href="#first" class="button style2 scrolly">Proceed to Download</a>
+				</footer>
+			</section>
+
+		<!-- Feature 1 -->
+			<article id="first" class="container box style1 right">
+				<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>RAW recordings <br />
+						by Audacity</h2>
+					</header>
+					<p>These are the raw recordings we captured with a microphone using <a href="http://audacity.sourceforge.net/">Audacity</a>, a well-known open source audio editing software. You can download them <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/All%20Sounds%20WAV.7z">here.</a></p>
+				</div>
+			</article>
+
+		<!-- Feature 2 -->
+			<article class="container box style1 left">
+				<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>WAV Recordings<br />
+						without segmentation</h2>
+					</header>
+					<p>We have converted the raw audacity recordings to .wav files but we have not performed segmentation on the recordings. You can download them from <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/Raw%20Audacity%20Recorded%20Collection.7z">here.</a></p>
+				</div>
+			</article>
+			
+			<!-- Feature 3 -->
+			<article class="container box style1 right">
+				<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>WAV Segmented<br />
+						Recordings</h2>
+					</header>
+					<p>We have segmented each recording into key presses by each user manually. You can download them from <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/Seperated%20WAV.7z">here.</a></p>
+				</div>
+			</article>
+		<!-- Descriptions -->
+		
+		<article class="container box style3">
+				<header>
+					<h2>Abstract</h2>
+					<p>
+					Breaking the encrypted message traffic from the German Enigma cipher machine was one of the key allied achievements of World War II, performed at Bletchley Park by a team led by Alan Turing.
+					The work described in this paper was motivated by the historic significance of the Enigma, and the fact that we had the possibility of gaining access to one. 
+					This led to the realisation that it would be intellectually interesting to investigate the possible effectiveness of a "side-channel" attack on the machine that exploited the noise made by the act of typing the source plaintext.
+					Much has been written on the cryptologic aspects and the historic impact of the Enigma, but we are unaware of any previous account of an investigation into its susceptibility to an acoustic side-channel attack. 
+					The Enigma keyboard differs greatly from a modern keyboard, and is particularly noisy, due to movements of one or more of the internal rotors and associated machinery in response to each key press. 
+					</p>
+					
+					<p>
+					We applied state-of-the-art signal processing and machine learning techniques to investigate the possibility of identifying the individual Enigma keys from the noises they made; 
+					the outcome was a demonstration that such identification could be reliably achieved with a success rate of 84% (as opposed to 3.8% by random guess), using a simple microphone and a personal computer.
+					</p>
+				</header>
+				<section>
+					<header>
+						<h2>Data Collection</h2>
+						<h3>The Overview</h3>
+					</header>
+					<p>
+					Each participant was asked to proceed as follows. The three rotors were to be set to the same initial positions, denoted as (1,1,1), and the participant had to type a sequence following the order in which they appeared on the keyboard - more specifically, starting with Q in the left hand top corner, through to L in the bottom right hand corner, and then repeating the letter L once more, hence 27 key strokes in total. 
+					Other than the rotor settings, which had to be re-initialised to (1,1,1) after each set of 27 keystrokes, all other aspects of the Enigma's setting were left unchanged for the duration of the experiments.
+					The procedure, as it was conveyed to each participant, is given below. 
+					<a href="#" class="image centered"><img src="images/82.png" alt="" /></a>
+					</p>
+					
+					<p>
+					During recording, a supervisor was responsible for controlling the recording, setting the rotor starting positions, and observing that the participant followed the procedure correctly, finally checking that the Enigma rotor positions had reaching the defined final setting.
+					</p>
+					
+					<header>
+						<h3>Recording Environment</h3>
+					</header>
+					
+					<p>
+					The recordings were made in a conference room. We used an ordinary hand-held microphone, and held the microphone roughly 20 centimetres from the Enigma while recording. 
+					We used the open source Audio Editor and Recorder Audacity to control the recording. 
+					All recordings were set to the sample rate of 44100, 32 bit per sample in mono mode. 
+					Given the conditions the final recordings contain occasional background noises as well as the keystroke noises. 
+					</p>
+					
+					<header>
+						<h3>Participants</h3>
+					</header>
+					
+					<p>
+					We recorded 32 participants in total. Their ages ranged from the 20s to the 70s. They were of different genders, body strengths, and typing skill levels. 
+					
+					
+					The distribution of participants with regard to the ages, genders and experience in typing are shown in figure below.
+					
+					<a href="#" class="image centered"><img src="images/7.png" alt="" /></a>
+					Each participant typed the 27 letters five times in a row. We found that, since the Enigma keyboard is hard to press, the participants were usually quite tired after the third round or so, and from then on typed more slowly, thus helping to fulfil our third requirement.
+					Most of the participants found the Enigma typing experience totally different compared to modern keyboards. 
+					</p>
+					
+					<header>
+						<h3>Rotor Movements</h3>
+					</header>
+					
+					<p>
+					We asked the participants to type the final key "L" twice. This ensured that there was one double rotor movement. 
+					In fact, the way in which the Enigma was set up, before the first pressing of "L", when the Enigma rotor sequence had reached (1,1,26), only the rightmost rotor had moved.
+					Then the next keystroke, i.e., first depression of the letter L, caused both the middle and the rightmost rotor to move, so leading to position (1,2,1). 
+					On the second pressing of "L" only the rightmost rotor moved. Thus we captured the basic sounds of all the different keys, and one instance of a key-press that caused a double movement, from each typing sequence.
+					This enabled us to satisfy, at least minimally, the fifth expectation, and to assess the recognition of double rotor movements as well as all the different keys when they caused just a single movement.
+					</p>
+					
+					<header>
+						<h3>Questionnaires</h3>
+					</header>
+					
+					<p>
+					Each participant filled in a debriefing form at the end of their recording session. They were asked two questions. The questions were as follows:
+					<ul class="default">
+						<li>How different was typing with Enigma comparing to the modern Keyboards? (Answers: Totally, Not Much, Same) </li>
+						<li>Do you think that it is possible to identify the keys stroke just from the sounds produced by typing? (Answers: Yes, No, Maybe)</li>
+					</ul>
+					</p>
+					
+
+					<p>
+					Participants' answers to the debriefing questions are illustrated in figure below.
+					<a href="#" class="image centered"><img src="images/9.png" alt="" /></a>
+					As you can see, Nearly 40% of the participants rejected the possibility of performing Acoustic Side Channel Attack on the Enigma.
+					</p>
+				</section>
+				<section>
+					<header>
+						<h3>Acknowledgement</h3>
+					</header>
+					<p>This project has been done by Ehsan Toreini under supervision of Prof. Brian Randell and Dr. Feng Hao in Newcastle University. A detailed paper giving a full account of this work has been submitted for journal publication. Meanwhile a Technical Report version of this paper has been prepared and is available <a href="">here.</a></p>
+				</section>
+				<!--<section>
+					<header>
+						<h3>Blockquote</h3>
+					</header>
+					<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
+					tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
+				</section>
+				<section>
+					<header>
+						<h3>Divider</h3>
+					</header>
+					<p>Donec consectetur <a href="#">vestibulum dolor et pulvinar</a>. Etiam vel felis enim, at viverra
+					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
+					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
+					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+					posuere cubilia.</p>
+					<hr />
+					<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
+					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
+					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
+					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+					posuere cubilia.</p>
+				</section>
+				<section>
+					<header>
+						<h3>Unordered List</h3>
+					</header>
+					<ul class="default">
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Ordered List</h3>
+					</header>
+					<ol class="default">
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+					</ol>
+				</section>
+				<section>
+					<header>
+						<h3>Table</h3>
+					</header>
+					<div class="table-wrapper">
+						<table class="default">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>45815</td>
+									<td>Something</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>29.99</td>
+								</tr>
+								<tr>
+									<td>24524</td>
+									<td>Nothing</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>19.99</td>
+								</tr>
+								<tr>
+									<td>45815</td>
+									<td>Something</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>29.99</td>
+								</tr>
+								<tr>
+									<td>24524</td>
+									<td>Nothing</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>19.99</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="3"></td>
+									<td>100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</section>
+				-->
+			</article>
+		
+		
+		<!-- Generic -->
+		<!--
+			
+			<section>
+					<header>
+						<h3>Form</h3>
+					</header>
+					<form method="post" action="#">
+						<div class="row">
+							<div class="6u">
+								<input class="text" type="text" name="name" id="name" value="" placeholder="John Doe" />
+							</div>
+							<div class="6u">
+								<input class="text" type="text" name="email" id="email" value="" placeholder="johndoe@domain.tld" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<select name="department" id="department">
+									<option value="">Choose a department</option>
+									<option value="1">Manufacturing</option>
+									<option value="2">Administration</option>
+									<option value="3">Support</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<input class="text" type="text" name="subject" id="subject" value="" placeholder="Enter your subject" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<textarea name="message" id="message" placeholder="Enter your message"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<ul class="actions">
+									<li><input type="submit" value="Submit" /></li>
+									<li><input type="reset" class="style3" value="Clear Form" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</section>
+			
+			<article class="container box style2">
+				<header>
+					<h2>Magnis parturient</h2>
+					<p>Justo phasellus et aenean dignissim<br />
+					placerat cubilia purus lectus.</p>
+				</header>
+				<div class="inner gallery">
+					<div class="row 0%">
+						<div class="3u"><a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" alt="" title="Ad infinitum" /></a></div>
+						<div class="3u"><a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" alt="" title="Dressed in Clarity" /></a></div>
+						<div class="3u"><a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" alt="" title="Raven" /></a></div>
+						<div class="3u"><a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
+					</div>
+					<div class="row 0%">
+						<div class="3u"><a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
+						<div class="3u"><a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" alt="" title="Different." /></a></div>
+						<div class="3u"><a href="images/fulls/07.jpg" class="image fit"><img src="images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
+						<div class="3u"><a href="images/fulls/08.jpg" class="image fit"><img src="images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
+					</div>
+				</div>
+			</article>
+
+		
+			<article class="container box style3">
+				<header>
+					<h2>Nisl sed ultricies</h2>
+					<p>Diam dignissim lectus eu ornare volutpat orci.</p>
+				</header>
+				<form method="post" action="#">
+					<div class="row 50%">
+						<div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
+						<div class="6u"><input type="text" class="text" name="email" placeholder="Email" /></div>
+					</div>
+					<div class="row 50%">
+						<div class="12u">
+							<textarea name="message" placeholder="Message"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="12u">
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</article>
+
+		-->
+
+		<section id="footer">
+			<ul class="icons">
+				<!--<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+				<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>-->
+				<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+			</ul>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</body>
+</html>
