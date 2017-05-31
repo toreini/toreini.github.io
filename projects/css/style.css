@@ -227,12 +227,14 @@
 				/*margin: 0 0 2em 0;*/
 				margin-top: 10px;
 				margin-bottom: 10px;
+
 			}
 
 				.image.centered img
 				{
 					margin: 0 auto;
 					width: auto;
+					max-width: 100%;
 				}
 
 	/* List */
