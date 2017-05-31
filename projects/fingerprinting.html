@@ -29,7 +29,7 @@
 				<header>
 					<h1>Texture to the Rescue</h1><br>
 					<h2>Practical Paper Fingerprinting based on Texture Patterns</h2>
-					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Ehsan Toreini</a>, <a href="https://www-users.cs.york.ac.uk/~siamak/">Siamak Fayyaz Shahandashti</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
+					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Ehsan Toreini</a>, <a href="https://www-users.cs.york.ac.uk/~siamak/">Siamak F. Shahandashti</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
 				</header>
 				<footer>
 					<a href="#banner" class="button style2 scrolly-middle">More...</a>
@@ -43,14 +43,14 @@
 				</header>
 				<a href="#" class="image"><img src="images/paper.jpg" alt="" /></a>
 				<div>
-				<p>This projects lays on an interesting idea: <i>The paper sheet texture carries a unique pattern. </i></p>
+				<p>This projects is based on an intuitive idea: <i>The texture of each paper sheet has a unique pattern. </i></p>
 
 				</p>
-				We designed a system that extracts this pattern with inexpensive equipment and optimised patetrn recognition algorithms. 
+				We designed a system that extracts this pattern using inexpensive equipment and optimised pattern recognition algorithms. 
 				</p>
 				
 				<p>
-				<strong>This project is to appear in the ACM Transactions on Privacy and Security (TOPS, formerly TISSEC), 2017.</strong></p>
+				<strong>A paper based on this project is to appear in the ACM Transactions on Privacy and Security (TOPS, formerly TISSEC), 2017.</strong></p>
 
 				<p>
 				<a href="https://arxiv.org/abs/1705.02510" class="icon fa-file-pdf-o">&nbsp;ePrint</a> , 
@@ -160,7 +160,7 @@ string of the size 2048 bits.
 					we evaluate our method’s robustness in non-ideal circumstances. First, we consider the robustness of our method against misalignment, i.e., in cases where the rectangular box is not aligned to the photo frame. Then, we consider the robustness of our method against paper being roughly handled in the following cases: the paper sheet is crumpled, some scribbling is done in the rectangular box, the sheet is soaked in water and dried afterwards, and the sheet is ironed after soaking and partially burnt.
 					</p>
 
-					p>
+					<p>
 					Fractional Hamming Distance distribution for the robustness evaluations is as below:<a href="#" class="image centered"><img src="images/robustness.png" alt="" /></a>
 					</p>
 					
@@ -171,10 +171,10 @@ string of the size 2048 bits.
 					<p>
 					There are two approaches for authentication: 
 					<ol class="default">
-					<li>Online Approach: a centralized database/blockchain can be dedicated to store the fingerprint and cross-check in every authentication procedure. Teh chances of a collision in the database is very low due to high entropy of our fingerprints. Theoretical FAR for hamming distance thresholds is: <a href="#" class="image centered"><img src="images/prob.png" alt="" /></a></li>
-					<li>Offline Approach: an established technique in biometrics is called <i>biometric encryption</i> to realize fingerprint encryption. We lock the fingerprint as a QR code. It can be used to authenticate paper sheet offline by the algorithms below:
+					<li>Online Approach: either a centralized database or a distributed ledger (blockchain) can be dedicated to store registered fingerprints and fresh fingerprints can be verified against such registered fingerprints during the authentication procedure. Teh The chances of a collision in the database is very low due to the high entropy of our fingerprints. Theoretical false acceptance rates for various Hamming distance thresholds are as follows: <a href="#" class="image centered"><img src="images/prob.png" alt="" /></a></li>
+					<li>Offline Approach: uses an established technique in biometrics, called <i> biometric encryption </i>, to realize fingerprint encryption. We store the encrypted fingerprint as a QR code on the same sheet of paper. This encrypted paper fingerprint can be used to authenticate the paper sheet offline using the algorithms below.
 					<a href="#" class="image centered"><img src="images/algorithm.png" alt="" /></a>
-					The QR code is also look like this:
+					An example QR code containing the encrypted paper fingerprint of one of our sheets is shown below.
 					<a href="#" class="image centered"><img src="images/qr.png" alt="" /></a>
 					</li>
 					</ol>
