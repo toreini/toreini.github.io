@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Acoustic Side Channel Attack on Enigma</title>
+		<title>The Economist Cyber Security Challenge: Removing Trusted Tallying Authorities</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -23,12 +23,14 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
-
+		<a href="#" class="image centered logo"><img src="images/economist.svg" alt="" /></a>
 		<!-- Header -->
 			<section id="header">
+				
 				<header>
-					<h1>Acoustic Side Channel Attack on Enigma</h1>
-					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Ehsan Toreini</a>, <a href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Brian Randell</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
+					<h1>Removing Trusted Tallying Authorities</h1>
+					<h2>Self-Enforcing E-Voting over Ethereum</h2>
+					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Maryam Mehrnezhad</a>, <a href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Patrick Mccorry</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Ehsan Toreini</a></p>
 				</header>
 				<footer>
 					<a href="#banner" class="button style2 scrolly-middle">More...</a>
@@ -40,72 +42,32 @@
 				<header>
 					<h2>Overview</h2>
 				</header>
-				<a href="#" class="image"><img src="images/1.jpg" alt="" /></a>
-				<div>
-				<p>This project is based on an interesting idea to investigate the possible effectiveness of a ""side-channel"" attack on the Enigma machine that exploited the noise made by the act of typing the source plaintext. 
-				We applied state-of-the-art signal processing and machine learning techniques to investigate the possibility of identifying the individual Enigma keys from the noises they made; 
-				We have used a simple microphone and a personal computer in order to record the samples.  
-				</p>
 				
+				<div>
 				<p>
-				<strong>In this website, We have uploaded the recorded sound of Enigma being typed by 32 different people to public access. You can use these recording for further investigations. </strong></p>
+					In the announcement for the winners of the 2016 Economist Cyber security Challenge, our team “Security upon Tyne” from the School of Computing Science, Newcastle University, won the 3rd place in this international competition. Universities that participated in this competition were selected by invitation based on their track record in cyber security research (particularly in bitcoin and voting) to participate. In the end, 19 universities from the UK and USA accepted the challenge.
+				</p>
+					
+				<p>
+					<strong>
+						In the final outcome, Newcastle University is the only UK university in the final top three, and it came after the New York University and the University of Maryland.
+					</strong>
+				</p>
 				</div>
 				<footer>
-					<a href="#first" class="button style2 scrolly">Proceed to Download</a>
+					<a href="#first" class="button style2 scrolly">Proceed to our Solution</a>
 				</footer>
 			</section>
 
-		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>RAW recordings <br />
-						by Audacity</h2>
-					</header>
-					<p>These are the raw recordings we captured with a microphone using <a href="http://audacity.sourceforge.net/">Audacity</a>, a well-known open source audio editing software. You can download them <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/All%20Sounds%20WAV.7z">here.</a></p>
-				</div>
-			</article>
-
-		<!-- Feature 2 -->
-			<article class="container box style1 left">
-				<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>WAV Recordings<br />
-						without segmentation</h2>
-					</header>
-					<p>We have converted the raw audacity recordings to .wav files but we have not performed segmentation on the recordings. You can download them from <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/Raw%20Audacity%20Recorded%20Collection.7z">here.</a></p>
-				</div>
-			</article>
-			
-			<!-- Feature 3 -->
-			<article class="container box style1 right">
-				<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>WAV Segmented<br />
-						Recordings</h2>
-					</header>
-					<p>We have segmented each recording into key presses by each user manually. You can download them from <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/Seperated%20WAV.7z">here.</a></p>
-				</div>
-			</article>
-		<!-- Descriptions -->
-		
 		<article class="container box style3">
 				<header>
-					<h2>Abstract</h2>
+					<h2>The Challenge</h2>
 					<p>
-					Breaking the encrypted message traffic from the German Enigma cipher machine was one of the key allied achievements of World War II, performed at Bletchley Park by a team led by Alan Turing.
-					The work described in this paper was motivated by the historic significance of the Enigma, and the fact that we had the possibility of gaining access to one. 
-					This led to the realisation that it would be intellectually interesting to investigate the possible effectiveness of a "side-channel" attack on the machine that exploited the noise made by the act of typing the source plaintext.
-					Much has been written on the cryptologic aspects and the historic impact of the Enigma, but we are unaware of any previous account of an investigation into its susceptibility to an acoustic side-channel attack. 
-					The Enigma keyboard differs greatly from a modern keyboard, and is particularly noisy, due to movements of one or more of the internal rotors and associated machinery in response to each key press. 
+					In this challenge, each team was tasked “to design a blockchain-compliant system for digital voting” to address the following aspects of an election: ensuring privacy and the ability to check the votes, protecting voting under duress, prohibiting publication of of interim results, supporting undecided voters and addressing any potential dispute in voting aftermath.
 					</p>
 					
 					<p>
-					We applied state-of-the-art signal processing and machine learning techniques to investigate the possibility of identifying the individual Enigma keys from the noises they made; 
-					the outcome was a demonstration that such identification could be reliably achieved with a success rate of 84% (as opposed to 3.8% by random guess), using a simple microphone and a personal computer.
+					Each team had to prepare a 3000 word report describing their work in two weeks from September 15, 2016 to September 29, 2016 and then, they had a week to produce two videos for the challenge. One video describes their proposal in between 3 to 5 minutes and an elevator pitch clip no more than 2 minutes. The attendants were asked to provide a proof of concept implementation of their solution to demonstrate the feasibility of their proposal. It was an intense challenge to do all these within the short 2-3 weeks.
 					</p>
 				</header>
 				<section>
@@ -128,6 +90,8 @@
 						<h3>Recording Environment</h3>
 					</header>
 					
+					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JB7ysvHJUwg?rel=0" frameborder="0" allowfullscreen></iframe>
+
 					<p>
 					The recordings were made in a conference room. We used an ordinary hand-held microphone, and held the microphone roughly 20 centimetres from the Enigma while recording. 
 					We used the open source Audio Editor and Recorder Audacity to control the recording. 
