@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Acoustic Side Channel Attack on Enigma</title>
+		<title>Touchsignatures and PINlogger.js</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -27,8 +27,9 @@
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<h1>Acoustic Side Channel Attack on Enigma</h1>
-					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Ehsan Toreini</a>, <a href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Brian Randell</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
+					<h1>Touchsignatures and PINlogger.js</h1>
+					<h2>identification of user touch actions and pins based on mobile sensor data via javascript</h2>
+					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Maryam Mehrnezhad</a>, <a href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Ehsan Toreini</a>, <a href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Siamak F. Shahandashti</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
 				</header>
 				<footer>
 					<a href="#banner" class="button style2 scrolly-middle">More...</a>
@@ -40,72 +41,29 @@
 				<header>
 					<h2>Overview</h2>
 				</header>
-				<a href="#" class="image"><img src="images/1.jpg" alt="" /></a>
 				<div>
-				<p>This project is based on an interesting idea to investigate the possible effectiveness of a ""side-channel"" attack on the Enigma machine that exploited the noise made by the act of typing the source plaintext. 
-				We applied state-of-the-art signal processing and machine learning techniques to investigate the possibility of identifying the individual Enigma keys from the noises they made; 
-				We have used a simple microphone and a personal computer in order to record the samples.  
+				<p>In this project, we propose PINlogger.js which is a JavaScript-based side channel attack revealing user PINs on an Android mobile phone. We proposed TouchSignatures as our cognitive engine to analyse the collected sensor stream and map it to user PINs. Although the rate of JavaScrpt sensor data is deliberately much less than the actual sampling rate that an Android application can acquire, our results were upto 99% accurate!
 				</p>
 				
 				<p>
-				<strong>In this website, We have uploaded the recorded sound of Enigma being typed by 32 different people to public access. You can use these recording for further investigations. </strong></p>
+				<strong>In this website, we overview our procedures, results and solutions we discussed in this project. </strong></p>
 				</div>
 				<footer>
-					<a href="#first" class="button style2 scrolly">Proceed to Download</a>
+					<a href="#first" class="button style2 scrolly">Proceed to Overview</a>
 				</footer>
 			</section>
 
-		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>RAW recordings <br />
-						by Audacity</h2>
-					</header>
-					<p>These are the raw recordings we captured with a microphone using <a href="http://audacity.sourceforge.net/">Audacity</a>, a well-known open source audio editing software. You can download them <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/All%20Sounds%20WAV.7z">here.</a></p>
-				</div>
-			</article>
-
-		<!-- Feature 2 -->
-			<article class="container box style1 left">
-				<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>WAV Recordings<br />
-						without segmentation</h2>
-					</header>
-					<p>We have converted the raw audacity recordings to .wav files but we have not performed segmentation on the recordings. You can download them from <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/Raw%20Audacity%20Recorded%20Collection.7z">here.</a></p>
-				</div>
-			</article>
-			
-			<!-- Feature 3 -->
-			<article class="container box style1 right">
-				<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>WAV Segmented<br />
-						Recordings</h2>
-					</header>
-					<p>We have segmented each recording into key presses by each user manually. You can download them from <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/Seperated%20WAV.7z">here.</a></p>
-				</div>
-			</article>
 		<!-- Descriptions -->
 		
-		<article class="container box style3">
+		<article class="container box style3" id="first">
 				<header>
 					<h2>Abstract</h2>
 					<p>
-					Breaking the encrypted message traffic from the German Enigma cipher machine was one of the key allied achievements of World War II, performed at Bletchley Park by a team led by Alan Turing.
-					The work described in this paper was motivated by the historic significance of the Enigma, and the fact that we had the possibility of gaining access to one. 
-					This led to the realisation that it would be intellectually interesting to investigate the possible effectiveness of a "side-channel" attack on the machine that exploited the noise made by the act of typing the source plaintext.
-					Much has been written on the cryptologic aspects and the historic impact of the Enigma, but we are unaware of any previous account of an investigation into its susceptibility to an acoustic side-channel attack. 
-					The Enigma keyboard differs greatly from a modern keyboard, and is particularly noisy, due to movements of one or more of the internal rotors and associated machinery in response to each key press. 
+					In this paper, we present the actual risks of stealing user PINs by using mobile sensors versus the perceived risks by users. First, we propose PINlogger.js which is a JavaScript-based side channel attack revealing user PINs on an Android mobile phone. In this attack, once the user visits a website controlled by an attacker, the JavaScript code embedded in the web page starts listening to the motion and orientation sensor streams without needing any permission from the user. By analysing these streams, it infers the user’s PIN using an artificial neural network. Based on a test set of fifty 4-digit PINs, PINlogger.js is able to correctly identify PINs in the first attempt with a success rate of 74% which increases to 86 and 94% in the second and third attempts, respectively. The high success rates of stealing user PINs on mobile devices via JavaScript indicate a serious threat to user security. 
 					</p>
 					
 					<p>
-					We applied state-of-the-art signal processing and machine learning techniques to investigate the possibility of identifying the individual Enigma keys from the noises they made; 
-					the outcome was a demonstration that such identification could be reliably achieved with a success rate of 84% (as opposed to 3.8% by random guess), using a simple microphone and a personal computer.
+					With the technical understanding of the information leakage caused by mobile phone sensors, we then study users’ perception of the risks associated with these sensors. We design user studies to measure the general familiarity with different sensors and their functionality, and to investigate how concerned users are about their PIN being discovered by an app that has access to all these sensors. Our studies show that there is significant disparity between the actual and perceived levels of threat with regard to the compromise of the user PIN. We confirm our results by interviewing our participants using two different approaches, within-subject and between-subject, and compare the results. We discuss how this observation, along with other factors, renders many academic and industry solutions ineffective in preventing such side channel attacks.
 					</p>
 				</header>
 				<section>
