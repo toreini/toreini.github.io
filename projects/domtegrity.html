@@ -28,7 +28,7 @@
 			<section id="header">
 				<header>
 					<h1>DOMtegrity: Ensuring Web Page Integrity against Browser Extension Modifications</h1>
-					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Ehsan Toreini</a>, <a href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Siamak F. Shahandashti</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
+					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Ehsan Toreini</a>, <a href="https://www-users.cs.york.ac.uk/~siamak/">Siamak F. Shahandashti</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
 				</header>
 				<footer>
 					<a href="#banner" class="button style2 scrolly-middle">More...</a>
@@ -40,18 +40,18 @@
 				<header>
 					<h2>Overview</h2>
 				</header>
-				<a href="#" class="image"><img src="images/1.jpg" alt="" /></a>
 				<div>
-				<p>This project is based on an interesting idea to investigate the possible effectiveness of a ""side-channel"" attack on the Enigma machine that exploited the noise made by the act of typing the source plaintext. 
-				We applied state-of-the-art signal processing and machine learning techniques to investigate the possibility of identifying the individual Enigma keys from the noises they made; 
-				We have used a simple microphone and a personal computer in order to record the samples.  
+				<p>This project proposes a novel idea to ensure web page's source code integrity in presence of a malicious browser extension. Our solution does not need modifications to the browser engine, installing third-party softwares or use of external hardware tokens for such protection.
 				</p>
 				
 				<p>
-				<strong>In this website, We have uploaded the recorded sound of Enigma being typed by 32 different people to public access. You can use these recording for further investigations. </strong></p>
+					Here, we leveraged the new capabilities of JavaScript APIs and the homogenous architecture of browser extensions development in mainstream modern browsers.
+				</p>
+				<p>
+				<strong>We have provided an overview of the project and access to the source code. </strong></p>
 				</div>
 				<footer>
-					<a href="#first" class="button style2 scrolly">Proceed to Download</a>
+					<a href="#first" class="button style2 scrolly">Proceed to Source Code</a>
 				</footer>
 			</section>
 
@@ -60,10 +60,11 @@
 				<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
 				<div class="inner">
 					<header>
-						<h2>RAW recordings <br />
-						by Audacity</h2>
+						<h2>Attack Scenarios</h2>
 					</header>
-					<p>These are the raw recordings we captured with a microphone using <a href="http://audacity.sourceforge.net/">Audacity</a>, a well-known open source audio editing software. You can download them <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/All%20Sounds%20WAV.7z">here.</a></p>
+					<p>In orer to show the existing threats of malicious extensions, we have designed two attacks on real-world online banking websites (Barclays and HSBC online banking). You can find more about the attacks <a href="#attacks">here.</a> </p>
+
+					<p><a href="#first" class="button style1 scrolly">Source Code</a></a> </p>
 				</div>
 			</article>
 
@@ -72,10 +73,12 @@
 				<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
 				<div class="inner">
 					<header>
-						<h2>WAV Recordings<br />
-						without segmentation</h2>
+						<h2>DOMtegrity</h2>
 					</header>
-					<p>We have converted the raw audacity recordings to .wav files but we have not performed segmentation on the recordings. You can download them from <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/Raw%20Audacity%20Recorded%20Collection.7z">here.</a></p>
+					<p>DOMtegrity is a JavaScript-based framework to ensure web page's integrity. The developer should embed this source code inside &#8826;script&#8827; tag and place it the first element of the web page before any other HTML tags. </p>
+					<p>The protocol is carefully design to exploit browser extensions limitations to the execution context and DOM's in-flight properties (a.k.a. expandos). Detailed description of the protocol and its security analysis is <a href="#domtegrity">here.</a></p>
+
+					<p><a href="#first" class="button style1 scrolly">Source Code</a></a> </p>
 				</div>
 			</article>
 			
@@ -84,10 +87,12 @@
 				<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
 				<div class="inner">
 					<header>
-						<h2>WAV Segmented<br />
+						<h2>Malicious Extensions<br />
 						Recordings</h2>
 					</header>
-					<p>We have segmented each recording into key presses by each user manually. You can download them from <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/enigma/Records/Seperated%20WAV.7z">here.</a></p>
+					<p>We have developed a few scenarios to demonstrate the resilience of DOMtegrity in various circumastances. The developed extensions are explained <a href="#domtegrity">here.</a></p>
+
+					<p><a href="#first" class="button style1 scrolly">Source Code</a></a> </p>
 				</div>
 			</article>
 		<!-- Descriptions -->
@@ -96,11 +101,7 @@
 				<header>
 					<h2>Abstract</h2>
 					<p>
-					Breaking the encrypted message traffic from the German Enigma cipher machine was one of the key allied achievements of World War II, performed at Bletchley Park by a team led by Alan Turing.
-					The work described in this paper was motivated by the historic significance of the Enigma, and the fact that we had the possibility of gaining access to one. 
-					This led to the realisation that it would be intellectually interesting to investigate the possible effectiveness of a "side-channel" attack on the machine that exploited the noise made by the act of typing the source plaintext.
-					Much has been written on the cryptologic aspects and the historic impact of the Enigma, but we are unaware of any previous account of an investigation into its susceptibility to an acoustic side-channel attack. 
-					The Enigma keyboard differs greatly from a modern keyboard, and is particularly noisy, due to movements of one or more of the internal rotors and associated machinery in response to each key press. 
+					In this paper, we address an important real-world problem: how to ensure the integrity of delivering web content in the presence of man-in-the-browser (MITB) attacks by malicious web extensions? Browser extensions have powerful privileges to manipulate a user's view of a web page by modifying the underlying Document Object Model (DOM). To demonstrate the threat, we implement two attacks on real-world online banking websites (HSBC and Barclays) and show how a malicious extension can covertly compromise the user's bank accounts. To address this problem, we propose a cryptographic protocol called DOMtegrity to ensure the end-to-end integrity of a web page's DOM from delivering at a server to the final display in a client's browser. Our solution works by exploiting subtle differences between browser extensions and in-line JavaScript code in terms of their rights to access Websocket channels, as well as leveraging the latest Web Crypto API support added in modern browsers. We show how DOMtegrity prevents the earlier attacks and a whole range of man-in-the-browser attacks that involve maliciously changing the DOM structure of a web page. We conduct extensive experiments on more than 14,000 real-world extensions to evaluate the effectiveness of DOMtegrity and its compatibility with existing extensions. To the best of our knowledge, DOMtegrity is the first solution that protects the integrity of DOM against malicious extensions without needing to modify the existing browser architecture or requiring extra hardware.  
 					</p>
 					
 					<p>
@@ -110,44 +111,73 @@
 				</header>
 				<section>
 					<header>
-						<h2>Data Collection</h2>
-						<h3>The Overview</h3>
+						<h2>Attacks</h2>
+
+						
 					</header>
 					<p>
-					Each participant was asked to proceed as follows. The three rotors were to be set to the same initial positions, denoted as (1,1,1), and the participant had to type a sequence following the order in which they appeared on the keyboard - more specifically, starting with Q in the left hand top corner, through to L in the bottom right hand corner, and then repeating the letter L once more, hence 27 key strokes in total. 
-					Other than the rotor settings, which had to be re-initialised to (1,1,1) after each set of 27 keystrokes, all other aspects of the Enigma's setting were left unchanged for the duration of the experiments.
-					The procedure, as it was conveyed to each participant, is given below. 
-					<a href="#" class="image centered"><img src="images/82.png" alt="" /></a>
+							In the following demonstration, we assume that a malicious extension is already installed on a client's browser. This can be done through disguising malicious extensions as legitimate browser extensions, using Trojans to install such extensions, missing plug-in attacks, or purchasing popular extensions and then adding malicious code during updates~\cite{sessionAttack2,adware}. In both attacks, the web pages that are presented to the victim are from the genuine banking websites via HTTPS.
+						</p>
+					<header>
+						<h3>HSBC Attack</h3>
+					</header>
+					<p>
+					The first attack shows how a malicious extension can easily bypass the two-factor authentication that is adopted by major banks, including HSBC. In this attack, the extension intercepts the victim's authentication credentials (i.e., login details), sends them to a remote attacker and redirects the user to a false maintenance page. Depending on the security policy of the banking web site, this authentication could involve a regular password and an additional one-time password (OTP) as a second factor which is either sent to the user's mobile phone as an SMS or locally generated using a dedicated device (i.e., a Chip Authentication Program (CAP) device) provided by the bank. 
+					</p>
+					<p>
+					We developed a proof-of-concept attack that targets the HSBC online banking web pages. To authenticate their clients, HSBC uses a password-based user authentication augmented with an OTP generated by a dedicated device, the HSBC Physical Secure Key. 
 					</p>
 					
 					<p>
-					During recording, a supervisor was responsible for controlling the recording, setting the rotor starting positions, and observing that the participant followed the procedure correctly, finally checking that the Enigma rotor positions had reaching the defined final setting.
+					Our attack works as follows: 
 					</p>
+
+					\begin{enumerate}
+
+					\item When the victim requests the login page, the browser extension content script replaces the username and password text boxes with its own and records the victim's username and password by communicating with the extension background page. 
+
+					\item When the victim is prompted for an OTP, the browser extension records what the victim enters in a similar manner. 
+
+					\item The victim is then redirected to a genuine customer service page. However, the content of the page is changed on the fly by the extension content script to include a message indicating that the website is temporarily unavailable for maintenance or due to technical difficulties as shown in Figure~\ref{fig:HSBCAttack}. 
+
+					\item The stolen login credentials are sent to the attacker who can then log into the victim's online banking account. 
+
+					\end{enumerate}
 					
 					<header>
-						<h3>Recording Environment</h3>
+						<h3>Barclays Attack</h3>
 					</header>
 					
 					<p>
-					The recordings were made in a conference room. We used an ordinary hand-held microphone, and held the microphone roughly 20 centimetres from the Enigma while recording. 
-					We used the open source Audio Editor and Recorder Audacity to control the recording. 
-					All recordings were set to the sample rate of 44100, 32 bit per sample in mono mode. 
-					Given the conditions the final recordings contain occasional background noises as well as the keystroke noises. 
+					The second attack shows how a malicious extension can defeat transaction-specific user authorization, which is added by many banks such as Barclays as an extra layer of security on top of two-factor authentication. Here, when an already authenticated user requests a transaction, she is required to provide a transaction-specific authorization code which is either sent to the user out of band or generated by a dedicated device upon unique transaction-specific input. This \emph{transaction authentication} is designed to prevent modification of transaction data (e.g., recipient and amount) by man-in-the-browser attackers. 
+
+Barclays uses the strongest form of transaction authentication (the so-called \emph{full transaction authentication}~\cite{extensionAttack3}) in which the unique transaction authorization code (i.e., the transaction-specific OTP) is cryptographically bound to the transaction data. The authorization code is calculated by a dedicated device provided by Barclays called PINsentry. Alternatively, the user can use the functionally equivalent Mobile PINsentry application on her smartphone. PINsentry is a battery-powered device consisting of a numeric keypad, a small LCD screen, a card reader and a tamper-resistant processor. When a transaction is requested through Internet banking, the user is required to manually enter the transaction details, including the payee account number and the amount, on PINsentry (or Mobile PINsentry) and then enter the PINsentry produced authorization code on the internet banking web page. However, in the following we show how a malicious extension can defeat this security measure by combining social engineering and DOM modifications. The attack works as follows:
 					</p>
-					
+					\begin{enumerate}
+
+\item When the victim requests a funds transfer, she is presented a form to provide the details of the funds transfer, including the payee account number and the amount. The malicious extension content script replaces the text box where the victim is supposed to enter the account number of the intended payee with its own text box and records the entered account number by communicating with the extension background page. 
+
+\item Then the user is presented with a dialogue confirming the transaction details and instructing her how to get a transaction authorization code from PINsentry. The instructions include asking the user to ``Enter the payee's account number as your REF:'' followed by the payee's account number. The malicious extension content script replaces this instruction with ``Enter this REF number:'' followed by the attacker's account number, as shown in Step~3 of the instructions in Figure~\ref{fig:barclaysAttack} with real bank details suitably redacted. 
+
+\item A non-expert user, trusting the HTTPS page to be secure and failing to notice the above subtle change, then enters the attacker's bank details in PINsentry and provides a code authorizing the funds transfer to the attacker's account. 
+
+\item The browser extension changes the final confirmation page before it is displayed to the user so that it shows the account details of the original intended payee rather than that of the attacker. 
+
+\end{enumerate}
+
+In this attack, the attacker's bank account may eventually be discovered by checking the victim's bank transaction records. However, this is not an issue for the attacker since he only needs to prevent the discovery of the fraud for some short timescale in which the funds can be withdrawn from the account. 
+
+The key issue that we were able to exploit is that PINsentry prompts the user for two pieces of transaction information: ``REF'' and ``Amount''. The only information about what ``REF'' means is present on the website, which can be modified by the extension. We have responsibly disclosed our attack to Barclays and since then Mobile PINsentry has been updated and the prompt on the app has been fixed to explicitly ask the user for the payee's account number instead of a REF number.
 					<header>
-						<h3>Participants</h3>
+						<h3>DOMtegrity</h3>
 					</header>
 					
 					<p>
-					We recorded 32 participants in total. Their ages ranged from the 20s to the 70s. They were of different genders, body strengths, and typing skill levels. 
-					
-					
-					The distribution of participants with regard to the ages, genders and experience in typing are shown in figure below.
-					
-					<a href="#" class="image centered"><img src="images/7.png" alt="" /></a>
-					Each participant typed the 27 letters five times in a row. We found that, since the Enigma keyboard is hard to press, the participants were usually quite tired after the third round or so, and from then on typed more slowly, thus helping to fulfil our third requirement.
-					Most of the participants found the Enigma typing experience totally different compared to modern keyboards. 
+					DOMtegrity is designed to enable the server to detect any unexpected modification of the DOM by extensions when the web page is rendered in the browser. The underlying idea is that DOMtegrity securely records all the modifications made to the web page DOM until the final rendering of the page and then securely communicates the recorded modifications to the server. The server is then in a position to decide whether or not the client's browser has parsed the page as the server expected. 
+
+DOMtegrity is implemented as a JavaScript program, called \texttt{pid.js}, which is then embedded as an in-line script (within a \texttt{$<$script$>$} tag) in the web page that the server wishes to  protect. This in-line inclusion is necessary since extensions are not able to restrict the execution of in-line web page scripts, whereas they can block loading external script files. For the in-line Javascript to work, we assume that JavaScript execution is not disabled in the browser. 
+
+Since DOMtegrity is to record all modifications to the DOM, it is essential that \texttt{pid.js} is placed at the start of the page source code and before all other HTML tags. Since parsing the web page in browser proceeds in the order that tags are placed in the page source code, placing \texttt{pid.js} at the start of the page ensures that recording changes in the DOM starts immediately as the browser starts parsing the page. 
 					</p>
 					
 					<header>
