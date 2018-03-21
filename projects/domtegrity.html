@@ -62,9 +62,9 @@
 					<header>
 						<h2>Attack Scenarios</h2>
 					</header>
-					<p>In orer to show the existing threats of malicious extensions, we have designed two attacks on real-world online banking websites (Barclays and HSBC online banking). You can find more about the attacks <a href="#attacks">here.</a> </p>
+					<p>In orer to show the existing threats of malicious extensions, we have designed two attacks on real-world online banking websites (Barclays and HSBC online banking). You can find more about the attacks <a href="#attacks">here.</a></p>
 
-					<p><a href="#first" class="button style1 scrolly">Source Code</a></a> </p>
+					<p><a href="mailto:ehsan.toreini@ncl.ac.uk" class="button style1 scrolly">Email us</a></a></p>
 				</div>
 			</article>
 
@@ -100,213 +100,78 @@
 		<article class="container box style3">
 				<header>
 					<h2>Abstract</h2>
-					<p>
-					In this paper, we address an important real-world problem: how to ensure the integrity of delivering web content in the presence of man-in-the-browser (MITB) attacks by malicious web extensions? Browser extensions have powerful privileges to manipulate a user's view of a web page by modifying the underlying Document Object Model (DOM). To demonstrate the threat, we implement two attacks on real-world online banking websites (HSBC and Barclays) and show how a malicious extension can covertly compromise the user's bank accounts. To address this problem, we propose a cryptographic protocol called DOMtegrity to ensure the end-to-end integrity of a web page's DOM from delivering at a server to the final display in a client's browser. Our solution works by exploiting subtle differences between browser extensions and in-line JavaScript code in terms of their rights to access Websocket channels, as well as leveraging the latest Web Crypto API support added in modern browsers. We show how DOMtegrity prevents the earlier attacks and a whole range of man-in-the-browser attacks that involve maliciously changing the DOM structure of a web page. We conduct extensive experiments on more than 14,000 real-world extensions to evaluate the effectiveness of DOMtegrity and its compatibility with existing extensions. To the best of our knowledge, DOMtegrity is the first solution that protects the integrity of DOM against malicious extensions without needing to modify the existing browser architecture or requiring extra hardware.  
+					<p>In this project, we address an important real-world problem: <b>how to ensure the integrity of delivering web content in the presence of man-in-the-browser (MITB) attacks by malicious web extensions?</b>
+					</p>
+					<p><a href="https://en.wikipedia.org/wiki/Browser_extension">Browser Extensions</a> have powerful privileges to manipulate a user's view of a web page by modifying the underlying Document Object Model (DOM). To demonstrate the threat, we implement two attacks on real-world online banking websites (HSBC and Barclays) and show how a malicious extension can covertly compromise the user's bank accounts.</p>
+					<p>To address this problem, we propose a cryptographic protocol called <em>DOMtegrity</em> to ensure the end-to-end integrity of a web page's DOM from delivering at a server to the final display in a client's browser. Our solution works by exploiting subtle differences between browser extensions and in-line JavaScript code in terms of their rights to access Websocket channels, as well as leveraging the latest Web Crypto API support added in modern browsers. We show how DOMtegrity prevents the earlier attacks and a whole range of man-in-the-browser attacks that involve maliciously changing the DOM structure of a web page. We conduct extensive experiments on more than 14,000 real-world extensions to evaluate the effectiveness of DOMtegrity and its compatibility with existing extensions. To the best of our knowledge, DOMtegrity is the first solution that protects the integrity of DOM against malicious extensions without needing to modify the existing browser architecture or requiring extra hardware.  
 					</p>
 				</header>
 				<section>
 					<header>
-						<h2>Attacks</h2>
-
-						
+						<h2 id="attacks">Attacks</h2>						
 					</header>
-					<p>
-							In the following demonstration, we assume that a malicious extension is already installed on a client's browser. This can be done through disguising malicious extensions as legitimate browser extensions, using Trojans to install such extensions, missing plug-in attacks, or purchasing popular extensions and then adding malicious code during updates~\cite{sessionAttack2,adware}. In both attacks, the web pages that are presented to the victim are from the genuine banking websites via HTTPS.
-						</p>
+					<p>In the following demonstration, we assume that a malicious extension is already installed on a client's browser. This can be done through disguising malicious extensions as legitimate browser extensions, using Trojans to install such extensions, missing plug-in attacks, or purchasing popular extensions and then adding malicious code during updates. In both attacks, the web pages that are presented to the victim are from the genuine banking websites via HTTPS.
+					</p>
 					<header>
-						<h3>HSBC Attack</h3>
+						<h3>Attack on Second Factor Authenticatin Scheme - HSBC Attack</h3>
 					</header>
 					<p>
-					The first attack shows how a malicious extension can easily bypass the two-factor authentication that is adopted by major banks, including HSBC. In this attack, the extension intercepts the victim's authentication credentials (i.e., login details), sends them to a remote attacker and redirects the user to a false maintenance page. Depending on the security policy of the banking web site, this authentication could involve a regular password and an additional one-time password (OTP) as a second factor which is either sent to the user's mobile phone as an SMS or locally generated using a dedicated device (i.e., a Chip Authentication Program (CAP) device) provided by the bank. 
+						The first attack shows how a malicious extension can easily bypass the <em>two-factor authentication</em> that is adopted by major banks, including HSBC. In this attack, the extension intercepts the victim's authentication credentials (i.e., login details), sends them to a remote attacker and redirects the user to a false maintenance page. Depending on the security policy of the banking web site, this authentication could involve a regular password and an additional one-time password (OTP) as a second factor which is either sent to the user's mobile phone as an SMS or locally generated using a dedicated device (i.e., a Chip Authentication Program (CAP) device) provided by the bank. 
 					</p>
 					<p>
-					We developed a proof-of-concept attack that targets the HSBC online banking web pages. To authenticate their clients, HSBC uses a password-based user authentication augmented with an OTP generated by a dedicated device, the HSBC Physical Secure Key. 
+						We developed a proof-of-concept attack that targets the HSBC online banking web pages. To authenticate their clients, HSBC uses a password-based user authentication augmented with an OTP generated by a dedicated device, the HSBC Physical Secure Key. 
 					</p>
 					
 					<p>
-					Our attack works as follows: 
+						Our attack works as follows: 
 					</p>
 
-					\begin{enumerate}
-
-					\item When the victim requests the login page, the browser extension content script replaces the username and password text boxes with its own and records the victim's username and password by communicating with the extension background page. 
-
-					\item When the victim is prompted for an OTP, the browser extension records what the victim enters in a similar manner. 
-
-					\item The victim is then redirected to a genuine customer service page. However, the content of the page is changed on the fly by the extension content script to include a message indicating that the website is temporarily unavailable for maintenance or due to technical difficulties as shown in Figure~\ref{fig:HSBCAttack}. 
-
-					\item The stolen login credentials are sent to the attacker who can then log into the victim's online banking account. 
-
-					\end{enumerate}
-					
-					<header>
-						<h3>Barclays Attack</h3>
-					</header>
-					
-					<p>
-					The second attack shows how a malicious extension can defeat transaction-specific user authorization, which is added by many banks such as Barclays as an extra layer of security on top of two-factor authentication. Here, when an already authenticated user requests a transaction, she is required to provide a transaction-specific authorization code which is either sent to the user out of band or generated by a dedicated device upon unique transaction-specific input. This \emph{transaction authentication} is designed to prevent modification of transaction data (e.g., recipient and amount) by man-in-the-browser attackers. 
-
-Barclays uses the strongest form of transaction authentication (the so-called \emph{full transaction authentication}~\cite{extensionAttack3}) in which the unique transaction authorization code (i.e., the transaction-specific OTP) is cryptographically bound to the transaction data. The authorization code is calculated by a dedicated device provided by Barclays called PINsentry. Alternatively, the user can use the functionally equivalent Mobile PINsentry application on her smartphone. PINsentry is a battery-powered device consisting of a numeric keypad, a small LCD screen, a card reader and a tamper-resistant processor. When a transaction is requested through Internet banking, the user is required to manually enter the transaction details, including the payee account number and the amount, on PINsentry (or Mobile PINsentry) and then enter the PINsentry produced authorization code on the internet banking web page. However, in the following we show how a malicious extension can defeat this security measure by combining social engineering and DOM modifications. The attack works as follows:
-					</p>
-					\begin{enumerate}
-
-\item When the victim requests a funds transfer, she is presented a form to provide the details of the funds transfer, including the payee account number and the amount. The malicious extension content script replaces the text box where the victim is supposed to enter the account number of the intended payee with its own text box and records the entered account number by communicating with the extension background page. 
-
-\item Then the user is presented with a dialogue confirming the transaction details and instructing her how to get a transaction authorization code from PINsentry. The instructions include asking the user to ``Enter the payee's account number as your REF:'' followed by the payee's account number. The malicious extension content script replaces this instruction with ``Enter this REF number:'' followed by the attacker's account number, as shown in Step~3 of the instructions in Figure~\ref{fig:barclaysAttack} with real bank details suitably redacted. 
-
-\item A non-expert user, trusting the HTTPS page to be secure and failing to notice the above subtle change, then enters the attacker's bank details in PINsentry and provides a code authorizing the funds transfer to the attacker's account. 
-
-\item The browser extension changes the final confirmation page before it is displayed to the user so that it shows the account details of the original intended payee rather than that of the attacker. 
-
-\end{enumerate}
-
-In this attack, the attacker's bank account may eventually be discovered by checking the victim's bank transaction records. However, this is not an issue for the attacker since he only needs to prevent the discovery of the fraud for some short timescale in which the funds can be withdrawn from the account. 
-
-The key issue that we were able to exploit is that PINsentry prompts the user for two pieces of transaction information: ``REF'' and ``Amount''. The only information about what ``REF'' means is present on the website, which can be modified by the extension. We have responsibly disclosed our attack to Barclays and since then Mobile PINsentry has been updated and the prompt on the app has been fixed to explicitly ask the user for the payee's account number instead of a REF number.
-					<header>
-						<h3>DOMtegrity</h3>
-					</header>
-					
-					<p>
-					DOMtegrity is designed to enable the server to detect any unexpected modification of the DOM by extensions when the web page is rendered in the browser. The underlying idea is that DOMtegrity securely records all the modifications made to the web page DOM until the final rendering of the page and then securely communicates the recorded modifications to the server. The server is then in a position to decide whether or not the client's browser has parsed the page as the server expected. 
-
-DOMtegrity is implemented as a JavaScript program, called \texttt{pid.js}, which is then embedded as an in-line script (within a \texttt{$<$script$>$} tag) in the web page that the server wishes to  protect. This in-line inclusion is necessary since extensions are not able to restrict the execution of in-line web page scripts, whereas they can block loading external script files. For the in-line Javascript to work, we assume that JavaScript execution is not disabled in the browser. 
-
-Since DOMtegrity is to record all modifications to the DOM, it is essential that \texttt{pid.js} is placed at the start of the page source code and before all other HTML tags. Since parsing the web page in browser proceeds in the order that tags are placed in the page source code, placing \texttt{pid.js} at the start of the page ensures that recording changes in the DOM starts immediately as the browser starts parsing the page. 
-					</p>
-					
-					<header>
-						<h3>Rotor Movements</h3>
-					</header>
-					
-					<p>
-					We asked the participants to type the final key "L" twice. This ensured that there was one double rotor movement. 
-					In fact, the way in which the Enigma was set up, before the first pressing of "L", when the Enigma rotor sequence had reached (1,1,26), only the rightmost rotor had moved.
-					Then the next keystroke, i.e., first depression of the letter L, caused both the middle and the rightmost rotor to move, so leading to position (1,2,1). 
-					On the second pressing of "L" only the rightmost rotor moved. Thus we captured the basic sounds of all the different keys, and one instance of a key-press that caused a double movement, from each typing sequence.
-					This enabled us to satisfy, at least minimally, the fifth expectation, and to assess the recognition of double rotor movements as well as all the different keys when they caused just a single movement.
-					</p>
-					
-					<header>
-						<h3>Questionnaires</h3>
-					</header>
-					
-					<p>
-					Each participant filled in a debriefing form at the end of their recording session. They were asked two questions. The questions were as follows:
 					<ul class="default">
-						<li>How different was typing with Enigma comparing to the modern Keyboards? (Answers: Totally, Not Much, Same) </li>
-						<li>Do you think that it is possible to identify the keys stroke just from the sounds produced by typing? (Answers: Yes, No, Maybe)</li>
+						<li>When the victim requests the login page, the browser extension content script replaces the username and password text boxes with its own and records the victim's username and password by communicating with the extension background page.</li>
+						<li>When the victim is prompted for an OTP, the browser extension records what the victim enters in a similar manner.</li>
+						<li>The victim is then redirected to a genuine customer service page. However, the content of the page is changed on the fly by the extension content script to include a message indicating that the website is temporarily unavailable for maintenance or due to technical difficulties as shown</li>
+						<li>The stolen login credentials are sent to the attacker who can then log into the victim's online banking account.</li>
 					</ul>
-					</p>
 					
-
+					<header>
+						<h3>Attack on Full Transaction Authorization Scheme - Barclays Attack</h3>
+					</header>
+					
 					<p>
-					Participants' answers to the debriefing questions are illustrated in figure below.
-					<a href="#" class="image centered"><img src="images/9.png" alt="" /></a>
-					As you can see, Nearly 40% of the participants rejected the possibility of performing Acoustic Side Channel Attack on the Enigma.
+					The second attack shows how a malicious extension can defeat transaction-specific user authorization, which is added by many banks such as Barclays as an extra layer of security on top of two-factor authentication. Here, when an already authenticated user requests a transaction, she is required to provide a transaction-specific authorization code which is either sent to the user out of band or generated by a dedicated device upon unique transaction-specific input. This <em>transaction authentication</em> is designed to prevent modification of transaction data (e.g., recipient and amount) by man-in-the-browser attackers. 
+
+					Barclays uses the strongest form of transaction authentication (the so-called <em>full transaction authentication</em> in which the unique transaction authorization code (i.e., the transaction-specific OTP) is cryptographically bound to the transaction data. The authorization code is calculated by a dedicated device provided by Barclays called PINsentry. Alternatively, the user can use the functionally equivalent Mobile PINsentry application on her smartphone. When a transaction is requested through Internet banking, the user is required to manually enter the transaction details, including the payee account number and the amount, on PINsentry (or Mobile PINsentry) and then enter the PINsentry produced authorization code on the internet banking web page.</p>
+
+					<p>In the following we show how a malicious extension can defeat this security measure by combining social engineering and DOM modifications. The attack works as follows:
 					</p>
-				</section>
-				<section>
-					<header>
-						<h3>Acknowledgement</h3>
-					</header>
-					<p>This project has been done by Ehsan Toreini under supervision of Prof. Brian Randell and Dr. Feng Hao in Newcastle University. A detailed paper giving a full account of this work has been submitted for journal publication. Meanwhile a Technical Report version of this paper has been prepared and is available <a href="">here.</a></p>
-				</section>
-				<!--<section>
-					<header>
-						<h3>Blockquote</h3>
-					</header>
-					<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-					tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
-				</section>
-				<section>
-					<header>
-						<h3>Divider</h3>
-					</header>
-					<p>Donec consectetur <a href="#">vestibulum dolor et pulvinar</a>. Etiam vel felis enim, at viverra
-					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-					posuere cubilia.</p>
-					<hr />
-					<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-					posuere cubilia.</p>
-				</section>
-				<section>
-					<header>
-						<h3>Unordered List</h3>
-					</header>
+
 					<ul class="default">
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+
+						<li>When the victim requests a funds transfer, she is presented a form to provide the details of the funds transfer, including the payee account number and the amount. The malicious extension content script replaces the text box where the victim is supposed to enter the account number of the intended payee with its own text box and records the entered account number by communicating with the extension background page.</li>
+
+						<li>Then the user is presented with a dialogue confirming the transaction details and instructing her how to get a transaction authorization code from PINsentry. The instructions include asking the user to <b>Enter the payee's account number as your REF</b> followed by the payee's account number. The malicious extension content script replaces this instruction with <b>Enter this REF number</b> followed by the attacker's account number.</li>
+
+						<li>A non-expert user, trusting the HTTPS page to be secure and failing to notice the above subtle change, then enters the attacker's bank details in PINsentry and provides a code authorizing the funds transfer to the attacker's account. </li>
+
+						<li>The browser extension changes the final confirmation page before it is displayed to the user so that it shows the account details of the original intended payee rather than that of the attacker. </li>
+
 					</ul>
-				</section>
-				<section>
+
+					In this attack, the attacker's bank account may eventually be discovered by checking the victim's bank transaction records. However, this is not an issue for the attacker since he only needs to prevent the discovery of the fraud for some short timescale in which the funds can be withdrawn from the account.
+
+					The key issue that we were able to exploit is that PINsentry prompts the user for two pieces of transaction information: <em>REF</em> and <em>Amount</em>. The only information about what <em>REF</em> means is present on the website, which can be modified by the extension. We have responsibly disclosed our attack to Barclays and since then Mobile PINsentry has been updated and the prompt on the app has been fixed to explicitly ask the user for the payee's account number instead of a REF number.
+
 					<header>
-						<h3>Ordered List</h3>
+						<h2>DOMtegrity</h2>
 					</header>
-					<ol class="default">
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					</ol>
+					
+					<p>DOMtegrity is designed to enable the server to detect any unexpected modification of the DOM by extensions when the web page is rendered in the browser. The underlying idea is that DOMtegrity securely records all the modifications made to the web page DOM until the final rendering of the page and then securely communicates the recorded modifications to the server. The server is then in a position to decide whether or not the client's browser has parsed the page as the server expected.</p>
+
+					<p>DOMtegrity is implemented as a JavaScript program, called <em>pid.js</em>, which is then embedded as an in-line script (within a &#8826;script&#8827; tag) in the web page that the server wishes to  protect. This in-line inclusion is necessary since extensions are not able to restrict the execution of in-line web page scripts, whereas they can block loading external script files. For the in-line Javascript to work, we assume that JavaScript execution is not disabled in the browser.</p>
+
+					<p>Since DOMtegrity is to record all modifications to the DOM, it is essential that <em>pid.js</em> is placed at the start of the page source code and before all other HTML tags. Since parsing the web page in browser proceeds in the order that tags are placed in the page source code, placing <em>pid.js</em> at the start of the page ensures that recording changes in the DOM starts immediately as the browser starts parsing the page.</p>
+					</p>					
 				</section>
-				<section>
-					<header>
-						<h3>Table</h3>
-					</header>
-					<div class="table-wrapper">
-						<table class="default">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>45815</td>
-									<td>Something</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>24524</td>
-									<td>Nothing</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>19.99</td>
-								</tr>
-								<tr>
-									<td>45815</td>
-									<td>Something</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>24524</td>
-									<td>Nothing</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>19.99</td>
-								</tr>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="3"></td>
-									<td>100.00</td>
-								</tr>
-							</tfoot>
-						</table>
-					</div>
-				</section>
-				-->
 			</article>
 		
 		
