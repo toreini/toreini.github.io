@@ -175,8 +175,28 @@
 
 					<p>Since DOMtegrity is to record all modifications to the DOM, it is essential that <em>pid.js</em> is placed at the start of the page source code and before all other HTML tags. Since parsing the web page in browser proceeds in the order that tags are placed in the page source code, placing <em>pid.js</em> at the start of the page ensures that recording changes in the DOM starts immediately as the browser starts parsing the page.</p>
 
+					<p>The <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment">isolated worlds</a> principle guarantees that DOMtegrity's recording of modifications in DOM cannot be tampered with by any extension. When executed, <em>pid.js</em> creates an on-the-fly DOM property (also called a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Expando">DOM expando</a>) named <em>document.pid</em> which implements the DOMtegrity functions within a domain isolated from any extension.</p>
+
+					<p>The extension's inability to access <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">Websocket</a> communication established by DOMtegrity provides assurance on the integrity of the communication between <em>pid.js</em> and the server. The in-line script <em>pid.js</em> establishes a Websocket with the server and this Websocket is used as a secure channel to convey a secret key which is later used to authenticate the DOM modifications that <em>document.pid</em> records. We should emphasize that although an extension has extensive access to HTTP(S) communications, it can only access the Websockets that are established by the same extension.</p>
+
+					<p><a href="#" class="image center"><img src="images/domTable.png" alt="" /></a></p>
+
+					<p>
+						DOMtegrity runs in three stages:
+						<ol class="default">
+							<li><b>Initialization:</b> sets up the protocol</li>
+							<li><b>Recording:</b> in charge of storing all DOM modifications</li>
+							<li><b>Verification:</b> evidence of DOM integrity is generated on the client side and is sent to the server for verification</li>
+						</ol>
+						
+						We assume the web page is served over HTTPS. The client is identified by the TLS session ID. 
+					</p>
+
 					<p><a href="#" class="image fit"><img src="images/domtegrity.png" alt="" /></a></p>
-					</p>					
+
+
+
+										
 				</section>
 			</article>
 		
