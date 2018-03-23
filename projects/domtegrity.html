@@ -132,6 +132,8 @@
 						<li>The victim is then redirected to a genuine customer service page. However, the content of the page is changed on the fly by the extension content script to include a message indicating that the website is temporarily unavailable for maintenance or due to technical difficulties as shown</li>
 						<li>The stolen login credentials are sent to the attacker who can then log into the victim's online banking account.</li>
 					</ul>
+
+					
 					
 					<header>
 						<h3>Attack on Full Transaction Authorization Scheme - Barclays Attack</h3>
@@ -159,6 +161,8 @@
 
 					In this attack, the attacker's bank account may eventually be discovered by checking the victim's bank transaction records. However, this is not an issue for the attacker since he only needs to prevent the discovery of the fraud for some short timescale in which the funds can be withdrawn from the account.
 
+					<p><a href="#" class="image centered"><img src="images/barclays.png" alt="" /></a></p>
+
 					The key issue that we were able to exploit is that PINsentry prompts the user for two pieces of transaction information: <em>REF</em> and <em>Amount</em>. The only information about what <em>REF</em> means is present on the website, which can be modified by the extension. We have responsibly disclosed our attack to Barclays and since then Mobile PINsentry has been updated and the prompt on the app has been fixed to explicitly ask the user for the payee's account number instead of a REF number.
 
 					<header>
@@ -170,6 +174,8 @@
 					<p>DOMtegrity is implemented as a JavaScript program, called <em>pid.js</em>, which is then embedded as an in-line script (within a &#8826;script&#8827; tag) in the web page that the server wishes to  protect. This in-line inclusion is necessary since extensions are not able to restrict the execution of in-line web page scripts, whereas they can block loading external script files. For the in-line Javascript to work, we assume that JavaScript execution is not disabled in the browser.</p>
 
 					<p>Since DOMtegrity is to record all modifications to the DOM, it is essential that <em>pid.js</em> is placed at the start of the page source code and before all other HTML tags. Since parsing the web page in browser proceeds in the order that tags are placed in the page source code, placing <em>pid.js</em> at the start of the page ensures that recording changes in the DOM starts immediately as the browser starts parsing the page.</p>
+
+					<p><a href="#" class="image fit"><img src="images/domtegrity.png" alt="" /></a></p>
 					</p>					
 				</section>
 			</article>
