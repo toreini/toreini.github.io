@@ -28,7 +28,7 @@
 			<section id="header">
 				<header>
 					<h1>DOMtegrity: Ensuring Web Page Integrity against Browser Extension Modifications</h1>
-					<p>By <a href="http://homepages.cs.ncl.ac.uk/ehsan.toreini/">Ehsan Toreini</a>, <a href="https://www-users.cs.york.ac.uk/~siamak/">Siamak F. Shahandashti</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
+					<p>By <a href="https://toreini.github.io/">Ehsan Toreini</a>, <a href="https://www-users.cs.york.ac.uk/~siamak/">Siamak F. Shahandashti</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
 				</header>
 				<footer>
 					<a href="#banner" class="button style2 scrolly-middle">More...</a>
@@ -49,7 +49,7 @@
 				</p>
 				<p>
 				<strong>We have provided an overview of the project and access to the source code.</strong></p>
-				<p>The full paper is accessible <a href="bib/domtegrity.pdf">here</a></p>
+				<p>The full paper is accessible <a href="bib/domtegrity.pdf"><i class="fa fa-file-pdf-o"></i>&nbsp;here</a></p>
 				</div>
 				<footer>
 					<a href="#first" class="button style2 scrolly">Proceed to Source Code</a>
@@ -57,20 +57,7 @@
 			</section>
 
 		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Attack Scenarios</h2>
-					</header>
-					<p>In orer to show the existing threats of malicious extensions, we have designed two attacks on real-world online banking websites (Barclays and HSBC online banking). You can find more about the attacks <a href="#attacks">here.</a></p>
-
-					<p><a href="mailto:ehsan.toreini@ncl.ac.uk" class="button style1 scrolly">Email us</a></a></p>
-				</div>
-			</article>
-
-		<!-- Feature 2 -->
-			<article class="container box style1 left">
+			<article id="first" class="container box style1 left">
 				<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
 				<div class="inner">
 					<header>
@@ -82,7 +69,18 @@
 					<p><a href="#first" class="button style1 scrolly">Source Code</a></a> </p>
 				</div>
 			</article>
-			
+		<!-- Feature 2 -->
+			<article class="container box style1 right">
+				<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>Attack Scenarios</h2>
+					</header>
+					<p>In orer to show the existing threats of malicious extensions, we have designed two attacks on real-world online banking websites (Barclays and HSBC online banking). You can find more about the attacks <a href="#attacks">here.</a></p>
+
+					<p><a href="mailto:ehsan.toreini@ncl.ac.uk" class="button style1 scrolly">Email us</a></a></p>
+				</div>
+			</article>
 		<!-- Descriptions -->
 		
 		<article class="container box style3">
@@ -122,7 +120,7 @@
 						<li>The victim is then redirected to a genuine customer service page. However, the content of the page is changed on the fly by the extension content script to include a message indicating that the website is temporarily unavailable for maintenance or due to technical difficulties as shown</li>
 						<li>The stolen login credentials are sent to the attacker who can then log into the victim's online banking account.</li>
 					</ul>
-
+					<p><a href="#" class="image centered"><img src="images/hsbc.png" alt="" /></a></p>
 					
 					
 					<header>
@@ -156,7 +154,8 @@
 					<p><a href="#" class="image centered"><img src="images/barclays.png" alt="" /></a></p>
 
 					The key issue that we were able to exploit is that PINsentry prompts the user for two pieces of transaction information: <em>REF</em> and <em>Amount</em>. The only information about what <em>REF</em> means is present on the website, which can be modified by the extension. We have responsibly disclosed our attack to Barclays and since then Mobile PINsentry has been updated and the prompt on the app has been fixed to explicitly ask the user for the payee's account number instead of a REF number.
-
+				</section>
+				<section>
 					<header>
 						<h2 id="domtegrity">DOMtegrity</h2>
 					</header>
@@ -171,21 +170,32 @@
 
 					<p>The extension's inability to access <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">Websocket</a> communication established by DOMtegrity provides assurance on the integrity of the communication between <em>pid.js</em> and the server. The in-line script <em>pid.js</em> establishes a Websocket with the server and this Websocket is used as a secure channel to convey a secret key which is later used to authenticate the DOM modifications that <em>document.pid</em> records. We should emphasize that although an extension has extensive access to HTTP(S) communications, it can only access the Websockets that are established by the same extension.</p>
 
-					<p><a href="#" class="image center"><img src="images/domTable.png" alt="" /></a></p>
+					<p><a href="#" class="image centered"><img src="images/domTable.png" alt="" /></a></p>
 
 					<p>
 						DOMtegrity runs in three stages:
 						<ol class="default">
-							<li><b>Initialization:</b> sets up the protocol</li>
-							<li><b>Recording:</b> in charge of storing all DOM modifications</li>
-							<li><b>Verification:</b> evidence of DOM integrity is generated on the client side and is sent to the server for verification</li>
+							<li><b>Initialization:</b> This stage begins as the browser starts parsing the web page. In this stage, the required setup for DOMtegrity is carried out as: Open Websocket and Request Key from server, Define DOM Mutation Observer, Stop Event Propagation, Define DOM Expando (as shown in the figure below.)</li>
+							<li><b>Recording:</b> After initialization, DOMtegrity enters a persistent passive mode and records all DOM mutations through the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">mutation observer.</a></li>
+							<li><b>Verification:</b> a page identifier (PID) containing the recorded changes in the DOM is generated. The stage starts when the function <em>document.pid.request()</em> is called. This is the only public expando function and should be called when the client ``returns'' the form, e.g., by clicking a ``submit'' button. This stage uses <a href="www.w3.org/TR/WebCryptoAPI">Web Crypto API.</a></li>
 						</ol>
 						
 						We assume the web page is served over HTTPS. The client is identified by the TLS session ID. 
 					</p>
 
-					<p><a href="#" class="image fit"><img src="images/domtegrity.png" alt="" /></a></p>
-										
+					<p><a href="#" class="image centered"><img src="images/domtegrity.png" alt="" /></a></p>
+
+					<header>
+						<h3 id="domtegrity">How DOMtegrity Prevents Attacks</h3>
+					</header>
+
+						<p>
+							Full security analysis of DOmtegrity and how it protects DOM from malicious modifications are presented in our <a href="bib/domtegrity.pdf"><i class="fa fa-file-pdf-o"></i>&nbsp;full paper</a>
+						</p>
+						<p>
+							We argued DOMtegrity is protected against the following attacks: <em>impersonation attacks</em>, <em>malicious attempts to influence its execution, <em>eavesdropping the secure channel by extensions</em>, <em>pollution of JavaScript global variables via monkey patching</em>, and more importently, <em>the new capability added from Chrome v.58 to enable partial access to webSocket channels</em>.
+						</p>
+					</header>					
 				</section>
 			</article>
 		
@@ -298,7 +308,7 @@
 			</ul>
 			<div class="copyright">
 				<ul class="menu">
-					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; Ehsan Toreini. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
 			</div>
 		</section>
