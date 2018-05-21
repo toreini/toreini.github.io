@@ -640,7 +640,8 @@ ul#nav li.current a { color: #F06000; }
 /* ------------------------------------------------------------------ */
 
 #call-to-action {
-   background: #212121;
+   /* background: #212121; */
+   background: #A49694;
    padding-top: 66px;
    padding-bottom: 48px;
 }
@@ -673,7 +674,8 @@ ul#nav li.current a { color: #F06000; }
    color: inherit;
 }
 #call-to-action p {
-   color: #636363;
+   /*color: #636363; OR #736B60;*/
+   color: #212121;
    font-size: 17px;
 }
 /*#
