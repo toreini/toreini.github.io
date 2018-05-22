@@ -640,8 +640,8 @@ ul#nav li.current a { color: #F06000; }
 /* ------------------------------------------------------------------ */
 
 #call-to-action {
-   /* background: #212121; */
-   background: #A49694;
+   /* background: #212121; A49694*/
+   background: #877B7A;
    padding-top: 66px;
    padding-bottom: 48px;
 }
@@ -649,7 +649,7 @@ ul#nav li.current a { color: #F06000; }
    font: 18px/24px 'opensans-bold', sans-serif;
    text-transform: uppercase;
    letter-spacing: 3px;
-   color: #fff;
+   color: #F5FDC6;
 }
 #call-to-action h1 span { display: none; }
 #call-to-action .header-col h1:before {
@@ -660,22 +660,22 @@ ul#nav li.current a { color: #F06000; }
    line-height: 72px;
    text-align: left;
    float: left;
-   color: #fff;
+   color: #F5FDC6;
 }
 #call-to-action .action {
    margin-top: 12px;
 }
 #call-to-action h2 {
    font: 28px/36px 'opensans-bold', sans-serif;
-   color: #EBEEEE;
+   color: #F5FDC6;/*#EBEEEE;*/
    margin-bottom: 6px;
 }
 #call-to-action h2 a {
    color: inherit;
 }
 #call-to-action p {
-   /*color: #636363; OR #736B60;*/
-   color: #212121;
+   /*color: #636363; OR #736B60;212121F5FDC6*/
+   color: #D0B17A;
    font-size: 17px;
 }
 /*#
@@ -694,6 +694,13 @@ call-to-action .button {
 	color: #D8D8D8;
 }
 
+#call-to-action a{
+  color: #F5C396;
+}
+
+#call-to-action h3{
+  color: #41521F;
+}
 /* ------------------------------------------------------------------
 /* g. Testimonials
 /* ------------------------------------------------------------------ */
