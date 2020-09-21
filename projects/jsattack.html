@@ -5,95 +5,136 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Touchsignatures and PINlogger.js</title>
 
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.scrolly.min.js"></script>
-		<script src="js/jquery.poptrox.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body>
+<head>
+	<title>Touchsignatures and PINlogger.js</title>
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<h1>Mobile Sensor Attack using JavaScript</h1>
-					<h2>Identification of User Touch Actions and PINs Based on Mobile Sensor Data via JavaScript</h2>
-					<p>By <a href="https://toreini.github.io/">Maryam Mehrnezhad</a>, <a href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Ehsan Toreini</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Siamak F. Shahandashti</a>, <a href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
-					<h1>Touchsignatures and PINlogger.js</h1>
-				</header>
-				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">More...</a>
-				</footer>
-			</section>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.scrolly.min.js"></script>
+	<script src="js/jquery.poptrox.min.js"></script>
+	<script src="js/skel.min.js"></script>
+	<script src="js/init.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="css/skel.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</noscript>
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
 
-		<!-- Banner -->
-			<section id="banner">
-				<header>
-					<h2>Overview</h2>
-				</header>
-				<div>
-				<p>In this paper, we present the actual risks of stealing user PINs by using mobile sensors versus the perceived risks by users. First, we propose PINlogger.js which is a JavaScript-based side channel attack revealing user PINs on an Android mobile phone.
-				</p>
-				
-				<p>
-				<strong>The results of our research have helped patching critical security threats in Firefox 46, iOS 8 and Chrome. Meanwhile, it has been cited and approached by W3C standards. We are actively in contact with W3C standadization bodies to strengthen the security and privacy aspects of JavaScript motion and orientation sensor access.</strong></p>
-				</div>
-				<footer>
-					<a href="#first" class="button style2 scrolly">Proceed to our Research</a>
-				</footer>
-			</section>
+<body>
 
-		<!-- Descriptions -->
+	<!-- Header -->
+	<section id="header">
+		<header>
+			<h1>Mobile Sensor Attack using JavaScript</h1>
+			<h2>Identification of User Touch Actions and PINs Based on Mobile Sensor Data via JavaScript</h2>
+			<p>By <a href="https://toreini.github.io/">Maryam Mehrnezhad</a>, <a
+					href="http://www.ncl.ac.uk/computing/people/profile/brian.randell">Ehsan Toreini</a>, <a
+					href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Siamak F. Shahandashti</a>, <a
+					href="http://homepages.cs.ncl.ac.uk/feng.hao/home.php">Feng Hao</a></p>
+			<h1>Touchsignatures and PINlogger.js</h1>
+		</header>
+		<footer>
+			<a href="#banner" class="button style2 scrolly-middle">More...</a>
+		</footer>
+	</section>
 
-		
-		<article class="container box style3" id="first">
-				<header>
-					<h2>Abstract</h2>
-					<p>
-		In this paper, we present the actual risks of stealing user PINs by using mobile sensors versus the perceived risks by users. First, we propose PINlogger.js which is a JavaScript-based side channel attack revealing user PINs on an Android mobile phone. In this attack, once the user visits a website controlled by an attacker, the JavaScript code embedded in the web page starts listening to the motion and orientation sensor streams without needing any permission from the user. By analysing these streams, it infers the user’s PIN using an artificial neural network. Based on a test set of fifty 4-digit PINs, PINlogger.js is able to correctly identify PINs in the first attempt with a success rate of 74% which increases to 86 and 94% in the second and third attempts, respectively. The high success rates of stealing user PINs on mobile devices via JavaScript indicate a serious threat to user security. With the technical understanding of the information leakage caused by mobile phone sensors, we then study users’ perception of the risks associated with these sensors. We design user studies to measure the general familiarity with different sensors and their functionality, and to investigate how concerned users are about their PIN being discovered by an app that has access to all these sensors. Our studies show that there is significant disparity between the actual and perceived levels of threat with regard to the compromise of the user PIN. We confirm our results by interviewing our participants using two different approaches, within-subject and between-subject, and compare the results. We discuss how this observation, along with other factors, renders many academic and industry solutions ineffective in preventing such side channel attacks.
-					</p>
-					
-					<p>
-					With the technical understanding of the information leakage caused by mobile phone sensors, we then study users’ perception of the risks associated with these sensors. We design user studies to measure the general familiarity with different sensors and their functionality, and to investigate how concerned users are about their PIN being discovered by an app that has access to all these sensors. Our studies show that there is significant disparity between the actual and perceived levels of threat with regard to the compromise of the user PIN. We confirm our results by interviewing our participants using two different approaches, within-subject and between-subject, and compare the results. We discuss how this observation, along with other factors, renders many academic and industry solutions ineffective in preventing such side channel attacks.
-					</p>
-				</header>
-				
-				<section>
-					<header>
-						<h3>Acknowledgement</h3>
-					</header>
-					<p>This project has been done by Ehsan Toreini under supervision of Prof. Brian Randell and Dr. Feng Hao in Newcastle University. A detailed paper giving a full account of this work has been submitted for journal publication. Meanwhile a Technical Report version of this paper has been prepared and is available <a href="">here.</a></p>
-				</section>
-				
-			</article>
-		
-		<section id="footer">
-			<ul class="icons">
-				<!--<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+	<!-- Banner -->
+	<section id="banner">
+		<header>
+			<h2>Overview</h2>
+		</header>
+		<div>
+			<p>In this paper, we present the actual risks of stealing user PINs by using mobile sensors versus the
+				perceived risks by users. First, we propose PINlogger.js which is a JavaScript-based side channel attack
+				revealing user PINs on an Android mobile phone.
+			</p>
+
+			<p>
+				<strong>The results of our research have helped patching critical security threats in Firefox 46, iOS 8
+					and Chrome. Meanwhile, it has been cited and approached by W3C standards. We are actively in contact
+					with W3C standadization bodies to strengthen the security and privacy aspects of JavaScript motion
+					and orientation sensor access.</strong>
+			</p>
+		</div>
+		<footer>
+			<a href="#first" class="button style2 scrolly">Proceed to our Research</a>
+		</footer>
+	</section>
+
+	<!-- Descriptions -->
+
+
+	<article class="container box style3" id="first">
+		<header>
+			<h2>Abstract</h2>
+			<p>
+				In this paper, we present the actual risks of stealing user PINs by using mobile sensors versus the
+				perceived risks by users. First, we propose PINlogger.js which is a JavaScript-based side channel attack
+				revealing user PINs on an Android mobile phone. In this attack, once the user visits a website
+				controlled by an attacker, the JavaScript code embedded in the web page starts listening to the motion
+				and orientation sensor streams without needing any permission from the user. By analysing these streams,
+				it infers the user’s PIN using an artificial neural network. Based on a test set of fifty 4-digit PINs,
+				PINlogger.js is able to correctly identify PINs in the first attempt with a success rate of 74% which
+				increases to 86 and 94% in the second and third attempts, respectively. The high success rates of
+				stealing user PINs on mobile devices via JavaScript indicate a serious threat to user security. With the
+				technical understanding of the information leakage caused by mobile phone sensors, we then study users’
+				perception of the risks associated with these sensors. We design user studies to measure the general
+				familiarity with different sensors and their functionality, and to investigate how concerned users are
+				about their PIN being discovered by an app that has access to all these sensors. Our studies show that
+				there is significant disparity between the actual and perceived levels of threat with regard to the
+				compromise of the user PIN. We confirm our results by interviewing our participants using two different
+				approaches, within-subject and between-subject, and compare the results. We discuss how this
+				observation, along with other factors, renders many academic and industry solutions ineffective in
+				preventing such side channel attacks.
+			</p>
+
+			<p>
+				With the technical understanding of the information leakage caused by mobile phone sensors, we then
+				study users’ perception of the risks associated with these sensors. We design user studies to measure
+				the general familiarity with different sensors and their functionality, and to investigate how concerned
+				users are about their PIN being discovered by an app that has access to all these sensors. Our studies
+				show that there is significant disparity between the actual and perceived levels of threat with regard
+				to the compromise of the user PIN. We confirm our results by interviewing our participants using two
+				different approaches, within-subject and between-subject, and compare the results. We discuss how this
+				observation, along with other factors, renders many academic and industry solutions ineffective in
+				preventing such side channel attacks.
+			</p>
+		</header>
+
+		<section>
+			<header>
+				<h3>Acknowledgement</h3>
+			</header>
+			<p>This project has been done by Ehsan Toreini under supervision of Prof. Brian Randell and Dr. Feng Hao in
+				Newcastle University. A detailed paper giving a full account of this work has been submitted for journal
+				publication. Meanwhile a Technical Report version of this paper has been prepared and is available <a
+					href="">here.</a></p>
+		</section>
+
+	</article>
+
+	<section id="footer">
+		<ul class="icons">
+			<!--<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
 				<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
 				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>-->
-				<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+			<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+		</ul>
+		<div class="copyright">
+			<ul class="menu">
+				<li>&copy; Ehsan Toreini. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 			</ul>
-			<div class="copyright">
-				<ul class="menu">
-					<li>&copy; Ehsan Toreini. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
-		</section>
+		</div>
+	</section>
 
-	</body>
+</body>
+
 </html>
