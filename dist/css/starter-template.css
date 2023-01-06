@@ -92,3 +92,7 @@ table.alt thead {
 table.alt tfoot {
 	border-top: 0;
 }
+
+.photo{
+	margin-left: 10%;
+}
