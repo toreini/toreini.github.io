@@ -1,0 +1,156 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="dist/css/starter.css" rel="stylesheet">
+    <title>Ehsan Toreini @ Surrey University</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+    <section class="hero is-warning is-medium">
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+            <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://toreini.github.io">
+                        <img src="msr/logo.png" width="112" height="28">
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="">
+                            Home
+                        </a>
+                    </div>
+            </nav>
+        </div>
+
+        <!-- Hero content: will be in the middle -->
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <p class="title">
+                    TRUE LAB
+                </p>
+                <p class="subtitle">
+                    (TRUst Engineering Lab)
+                </p>
+            </div>
+        </div>
+
+        <!-- Hero footer: will stick at the bottom -->
+        <div class="hero-foot">
+            <nav class="tabs is-boxed is-fullwidth is-large">
+                <div class="container">
+                    <ul>
+                        <li class="tab is-active" onclick="openTab(event,'about')">
+                            <a><span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                                <span>About</span></a>
+                        </li>
+                        <li class="tab" onclick="openTab(event,'projects')">
+                            <a><span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                                <span>Projects</span></a>
+                        </li>
+                        <li class="tab" onclick="openTab(event,'people')">
+                            <a><span class="icon is-small"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>
+                                <span>People</span></a>
+                        </li>
+                        <li class="tab" onclick="openTab(event,'open')">
+                            <a><span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                                <span>Open Positions</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <div class="container section">
+        <div id="about" class="content-tab">
+            <p>
+                test1<br>
+                Test 1</p>
+        </div>
+        <div id="projects" class="content-tab" style="display:none">
+            <p>
+                test2<br>
+                Test 2</p>
+        </div>
+        <div id="people" class="content-tab" style="display:none">
+            <h3>Research Team</h3>
+            <p>I am lucky to be exposed to a talented pool of students and researchers so far. I am expanding my
+                team for now so keep an eye on any upcoming hiring notifications in this section!</p>
+
+            <div class="content">
+                <h5>Current members:</h5>
+                <ul>
+                    <li class="list-item"><b><a href="...">James Clarke</a></b>(PhD candidate)</li>
+                </ul>
+                <h5>Alumni (few that I am proud to work with):</h5>
+                <ul>
+                    <li class="list-item"><b><a href="https://www.dwresearch.online/">Patrick Wake</a></b> (PhD
+                        candidate,
+                        Global Head
+                        of Information Security, FDM Group), co-supervised with Prof. Sue Black.</li>
+                    <li class="list-item"><b><a href="https://www.durham.ac.uk/staff/amira-a-saleem/">Amira
+                                Alrewetae</a></b> (PhD
+                        candidate), co-supervised with Dr. Gaganjeet Aujla</li>
+                    <li class="list-item"><b><a href="https://joshua-harrison.com/">Josh Harrison</a></b> (Research
+                        Project,
+                        2022) --> Software Development Engineer @ Amazon uk</li>
+                    <li class="list-item"><b><a href="https://www.linkedin.com/in/jack-reeves-518669144/">Jack
+                                Reeves</a></b>
+                        (Research Project,
+                        2022) --> Digital Consultant @ Newton Europe </li>
+                    <li class="list-item"><b><a href="https://www.linkedin.com/in/jia-xiu-sai-a80825169/">Jia Xiu
+                                Sai</a></b>
+                        (Research Project, 2022)
+                        --> Graduate Software Engineer @ THG</li>
+                    <li class="list-item"><b><a href="https://kjtian.github.io/">Max Dormon</a></b> (Research Project,
+                        2022)
+                        -->
+                        Software Engineer @ JPMorgn Chase
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="open" class="content-tab" style="display:none">
+            <p>
+                test4 <br>
+                This is test 4</p>
+        </div>
+    </div>
+    <script>
+        function openTab(evt, tabName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("content-tab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " is-active";
+        }
+    </script>
+
+</body>
+
+</html>
