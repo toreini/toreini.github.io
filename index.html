@@ -10,7 +10,6 @@
 </head>
 
 
-
 <body>
 
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
@@ -70,21 +69,7 @@
             </span>
         </h2>
         <article class="media">
-            <div class="media-left">
-                <figure class="image">
-                    <img id="picture" class="has-ratio" src="msr/test.png" onmouseover="swapPictures1()"
-                        onmouseout="swapPictures2()">
-                </figure>
-                <script>
-                    function swapPictures1() {
-                        document.getElementById("picture").src = "msr/clicked-test.png";
-                    }
-
-                    function swapPictures2() {
-                        document.getElementById("picture").src = "msr/test.png";
-                    }
-                </script>
-            </div>
+            
             <div class="media-content">
                 <div class="content">
                     <p>
@@ -140,6 +125,22 @@
                             please send an email to me with your proposal and CV (I usually respond within a week)</li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="media-right">
+                <figure class="image">
+                    <img id="picture" class="has-ratio" src="msr/test.png" onmouseover="swapPictures1()"
+                        onmouseout="swapPictures2()">
+                </figure>
+                <script>
+                    function swapPictures1() {
+                        document.getElementById("picture").src = "msr/clicked-test.png";
+                    }
+
+                    function swapPictures2() {
+                        document.getElementById("picture").src = "msr/test.png";
+                    }
+                </script>
             </div>
         </article>
 
