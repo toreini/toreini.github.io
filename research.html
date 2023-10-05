@@ -7,66 +7,178 @@
 <html>
 
 <head>
-
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="icon" href="../../favicon.ico">
-
-	<title>Ehsan Toreini</title>
-
-	<!-- Bootstrap core CSS -->
-	<link href="dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="dist/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link href="starter-template.css" rel="stylesheet">
-
-	
-
-
-	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-	<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<link href="dist/css/starter.css" rel="stylesheet">
+	<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+	<title>Ehsan Toreini @ Surrey University</title>
 </head>
+
 
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-					aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="./index.html">Ehsan Toreini</a>
-			</div>
-			<!--/.nav-collapse -->
+	<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="https://www.surrey.ac.uk">
+				<img src="msr/logo.png" width="112" height="28">
+			</a>
+
+			<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+				data-target="navbarBasicExample">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
 		</div>
+
+		<div class="navbar-menu">
+			<div class="navbar-start">
+				<a class="navbar-item" href="">
+					Home
+				</a>
+
+			</div>
+
+			<div class="navbar-end">
+				<a class="navbar-item" href="index.html#about">
+					About
+				</a>
+				<a class="navbar-item" href="research.html">
+					Research
+				</a>
+				<a class="navbar-item" href="index.html#papers">
+					Publications
+				</a>
+				<a class="navbar-item" href="index.html#teaching">
+					Teaching
+				</a>
+				<a class="navbar-item" href="index.html
+				#misc">
+					Misc.
+				</a>
+			</div>
 	</nav>
 
 
-	<div class="container">
-		<div class="voffset1"></div>
-		<div class="row">
-			<div class="span12">
-				<section id="about">
+	<section class="section">
+		<h1 class="title">Research Interests</h1>
 
-					<header class="main">
-						<h1>Research Highlights</h1>
-					</header>
+		<div class="tabs is-toggle is-boxed is-fullwidth is-large">
+			<ul>
+				<li class="tab is-active" onclick="openTab(event,'physicalSec')">
+					<a>
+						<span>Physical Security</span>
+					</a>
+				</li>
+				<li class="tab" onclick="openTab(event,'trustML')">
+					<a>
+						<span>Trustworthy Machine Learning</span>
+					</a>
+				</li>
+				<li class="tab" onclick="openTab(event,'webSec')">
+					<a>
+						<span>Web Security</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="container section">
+			<div id="physicalSec" class="content-tab">
+				<div class="content">
+					<div class="columns">
+						<div class="column">
+							<blockquote>
+								<h2 class="subtitle">developing authentication protocols to track physical objects</h2>
 
-					<!--
+								<ul>
+									<li>Digital Fingerprinting of physical objects</li>
+									<li>Crytographic protocols to authenticate objects</li>
+								</ul>
+
+
+								<h2 class="subtitle">Side Channel Privacy Leakages</h2>
+
+								<ul>
+									<li>Sensor-based privacy leakages</li>
+									<li>Medical IoT connection hijacking</li>
+								</ul>
+							</blockquote>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div id="trustML" class="content-tab" style="display:none">
+				<div class="content">
+					<div class="columns">
+						<div class="column">
+							<blockquote>
+								<h2 class="subtitle">Cryptographic protocols for ML governance</h2>
+
+								<ul>
+									<li>Verifiable Auditing for Fairness</li>
+									<li>Decentralised Black-box Auditing of ML models</li>
+								</ul>
+
+								<h2 class="subtitle">Socio-Technical perception of trust and trustworthiness in ML
+									systems
+								</h2>
+
+								<ul>
+									<li>Trustworthy ML technologies</li>
+									<li>Trust perception in various ML-based usecases</li>
+								</ul>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="webSec" class="content-tab" style="display:none">
+				<div class="content">
+					<div class="columns">
+						<div class="column">
+							<blockquote>
+								<h2 class="subtitle">Malicious Browser Extensions</h2>
+
+								<ul>
+									<li>Protections against malicious browser extensions</li>
+									<li>Man-in-the-Browser attacks</li>
+								</ul>
+
+								<h2 class="subtitle">Web Tracking and Privacy Enhancing Technologies</h2>
+
+								<ul>
+									<li>Tracking in different platforms</li>
+									<li>Privacy leakages in web apps</li>
+								</ul>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function openTab(evt, tabName) {
+				var i, x, tablinks;
+				x = document.getElementsByClassName("content-tab");
+				for (i = 0; i < x.length; i++) {
+					x[i].style.display = "none";
+				}
+				tablinks = document.getElementsByClassName("tab");
+				for (i = 0; i < x.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+				}
+				document.getElementById(tabName).style.display = "block";
+				evt.currentTarget.className += " is-active";
+			}
+		</script>
+
+
+
+
+
+		<!--
 					<h2>Previous Research Highlights</h2>
 				<p>Some of my previous projects are listed as bellows:
 				</p>
@@ -119,158 +231,183 @@
 					</section>
 				</div>
 			-->
+		<h1 class="title">Research Team</h1>
+		<div class="content">
+			<p>I am lucky to be exposed to a talented pool of students and researchers so far. I am expanding my
+				team for now so keep an eye on any upcoming hiring notifications in this section!</p>
 
-
-					<h2>Grants and Awards</h2>
-					<div class="table-wrapper">
-						<table class="alt">
-							<thead>
-								<tr>
-									<th>Year</th>
-									<th>Name</th>
-									<th>Description</th>
-									<!--<th>Fund</th>-->
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2022</td>
-									<td><a href="https://agencyresearch.net/">AGENCY: Assuring Citizen Agency in a World
-											with Complex Online Harms</a></td>
-									<td>Co-I (Lead Investigator in Durham University) in EPSRC funded project</td>
-									<!--<td>£3k</td>-->
-								</tr>
-								<tr>
-									<td>2021</td>
-									<td><a
-											href="https://petras-iot.org/project/cyber-security-and-privacy-in-fertility-technologies-cyfer/">PETRAS
-											(National Excellence for IoT Systems and Cybersecurity)</a></td>
-									<td>Co-I (Lead Investigator in Durham University) in Cyfer project: Cyber security
-										and Privacy in Fertility Technologies</td>
-									<!--<td>£3k</td>-->
-								</tr>
-								<tr>
-									<td>2019</td>
-									<td><a
-											href="https://www.standict.eu/sites/default/files/Final%20Impact%20Report%20Europe%E2%80%99s%20contributions%20to%20ICT%20Standardisation%20globally%20-%20Impacts%20from%20StandlCT.eu%20funding.pdf">StandICT
-											grant</a></td>
-									<td>Grant to facilitate standardization impact in ICT</td>
-									<!--<td>£3k</td>-->
-								</tr>
-								<tr>
-									<td>2017</td>
-									<td>Economist and Kaspersky cybersecurity award</td>
-									<td>Award on using Blockchain for e-voting. Our team was the only winner
-										outside the USA
-										in the top three finalists (among many international participations of esteemed
-										universities such as UCL)</td>
-									<!--<td>$3k</td>-->
-								</tr>
-
-							</tbody>
-						</table>
-					</div>
-
-
-					<h2>Research Impact</h2>
-
-					<div class="table-wrapper">
-						<table class="alt">
-							<thead>
-								<tr>
-									<th>Year</th>
-									<th>Product</th>
-									<th>Project</th>
-									<th>Detail</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2019</td>
-									<td>Patent in the USA</td>
-									<td>Novel method for preventing counterfeiting of an object</td>
-									<td><a
-											href="https://patentimages.storage.googleapis.com/ed/48/7c/02b4251a99dd7b/US10680825.pdf"><i
-												class="fas fa-info-circle"></i></a></td>
-								</tr>
-								<tr>
-									<td>2018</td>
-									<td>Mozilla Firefox</td>
-									<td>Mozilla Firefox deployed a fix on
-										Firefox 46 (CVE-2016-2813) for sensor access model Vulnerabilities</td>
-									<td><a href="https://www.mozilla.org/en-US/security/advisories/mfsa2016-43/"><i
-												class="fas fa-info-circle"></i></a></td>
-								</tr>
-								<tr>
-									<td>2018</td>
-									<td>Apple iOS</td>
-									<td>Apple included a fix on Safari in IOS 9.3 (CVE-2016-1780) for sensor
-										access model
-										Vulnerabilities</td>
-									<td><a href="https://support.apple.com/en-gb/HT206166"><i
-												class="fas fa-info-circle"></i></a></td>
-								</tr>
-								<tr>
-									<td>2016</td>
-									<td>W3C</td>
-									<td>Specific Privacy and Security section added to the Motion/Orientation
-										standard
-										document</td>
-									<td><a href="https://www.w3.org/TR/2016/CR-orientation-event-20160818/"><i
-												class="fas fa-info-circle"></i></a></td>
-								</tr>
-								<tr>
-									<td>2014</td>
-									<td>Apple Safari</td>
-									<td>Vulnerabilities found in Private Browsing (bug report #14685058)</td>
-									<td><a href="./projects/economist.html"><i class="fas fa-info-circle"></i></a></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-
-					
-
-
-
-
-					<h2>Past affiliations</h2>
-					<ul>
-						<li>Assistant Professor (Lecturer) at Department of Computer Science, Durham University, (August 2020
-							2020 - January 2023)</li>
-						<li>Research Associate (Postdoctoral Researcher) at the Secure and Resilient Systems (SRS) Group
-							of
-							Newcastle University, Newcastle upon Tyne, UK, working with Prof. Aad van Moorsel (January
-							2019 - August 2020)</li>
-						<li>Research Associate (Postdoctoral Researcher) at the Secure and Resilient Systems (SRS) Group
-							of
-							Newcastle University, Newcastle upon Tyne, UK, working with Prof. Feng Hao (June 2018 -
-							January 2019)</li>
-						<li>PhD at Newcastle University, Newcastle upon Tyne, UK, under supervision of Prof. Feng Hao,
-							<a href=/extra/Toreini-Thesis.pdf>Thesis </a>
-						</li>
-					</ul>
-			</div>
-			</section>
-
+			<h5>Current members:</h5>
+			<ul>
+				<li class="list-item"><b><a href="...">James Clarke</a></b>(PhD candidate)</li>
+			</ul>
+			<h5>Alumni (few that I am proud to work with):</h5>
+			<ul>
+				<li class="list-item"><b><a href="https://www.dwresearch.online/">Patrick Wake</a></b> (PhD
+					candidate,
+					Global Head
+					of Information Security, FDM Group), co-supervised with Prof. Sue Black.</li>
+				<li class="list-item"><b><a href="https://www.durham.ac.uk/staff/amira-a-saleem/">Amira
+							Alrewetae</a></b> (PhD
+					candidate), co-supervised with Dr. Gaganjeet Aujla</li>
+				<li class="list-item"><b><a href="https://joshua-harrison.com/">Josh Harrison</a></b> (Research
+					Project,
+					2022) --> Software Development Engineer @ Amazon uk</li>
+				<li class="list-item"><b><a href="https://www.linkedin.com/in/jack-reeves-518669144/">Jack
+							Reeves</a></b>
+					(Research Project,
+					2022) --> Digital Consultant @ Newton Europe </li>
+				<li class="list-item"><b><a href="https://www.linkedin.com/in/jia-xiu-sai-a80825169/">Jia Xiu
+							Sai</a></b>
+					(Research Project, 2022)
+					--> Graduate Software Engineer @ THG</li>
+				<li class="list-item"><b><a href="https://kjtian.github.io/">Max Dormon</a></b> (Research
+					Project,
+					2022)
+					-->
+					Software Engineer @ JPMorgn Chase
+				</li>
+			</ul>
 		</div>
 
-		<footer class="py-3 my-4">
-			<p class="text-center text-muted">© Ehsan Toreini</p>
-		</footer>
+		<h1 class="title">Grants and Awards</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Year</th>
+					<th>Name</th>
+					<th>Description</th>
+					<!--<th>Fund</th>-->
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>2022-Now</td>
+					<td><a href="https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/W032481/1">AGENCY: Assuring Citizen Agency in a World
+							with Complex Online Harms</a></td>
+					<td>Co-I in EPSRC funded project (See <a href="https://agencyresearch.net/"> project page</a>)</td>
+					<!--<td>£3k</td>-->
+				</tr>
+				<tr>
+					<td>2021-2023</td>
+					<td><a
+							href="https://petras-iot.org/project/cyber-security-and-privacy-in-fertility-technologies-cyfer/">Cyfer: Cyber security
+							and Privacy in Fertility Technologies</a></td>
+					<td>Co-I in PETRAS funded project (See <a href="https://sites.google.com/view/maryammjd/cyfer-project"> project page</a>)|<i class="fa fa-vr-cardboard"></i><a href="https://royalhollowayartarchives.viewin360.co/share/collection/7Jnt3?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1">Virtual Cyfer Art Exhibition</a></td>
+					<!--<td>£3k</td>-->
+				</tr>
+				<tr>
+					<td>2019</td>
+					<td><a
+							href="https://www.standict.eu/sites/default/files/Final%20Impact%20Report%20Europe%E2%80%99s%20contributions%20to%20ICT%20Standardisation%20globally%20-%20Impacts%20from%20StandlCT.eu%20funding.pdf">StandICT
+							grant</a></td>
+					<td>Grant to facilitate standardization impact in ICT</td>
+					<!--<td>£3k</td>-->
+				</tr>
+				<tr>
+					<td>2017</td>
+					<td>Economist and Kaspersky cybersecurity award</td>
+					<td>Award on using Blockchain for e-voting. Our team was the only winner
+						outside the USA
+						in the top three finalists (among many international participations of esteemed
+						universities such as UCL)</td>
+					<!--<td>$3k</td>-->
+				</tr>
+
+			</tbody>
+		</table>
+
+
+		<h1 class="title">Research Impact</h1>
+
+		<table class="table"">
+				<thead>
+					<tr>
+						<th>Year</th>
+						<th>Product</th>
+						<th>Project</th>
+						<th>Detail</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2023</td>
+						<td>W3C</td>
+						<td>Acknowledged in the standardisation for pressure sensors</td>
+						<td><a href="https://www.w3.org/TR/compute-pressure/"><i
+									class="fas fa-info-circle"></i></a></td>
+					</tr>
+					<tr>
+						<td>2019</td>
+						<td>Patent in the USA</td>
+						<td>Novel method for preventing counterfeiting of an object</td>
+						<td><a
+								href=" https://patentimages.storage.googleapis.com/ed/48/7c/02b4251a99dd7b/US10680825.pdf"><i
+				class="fas fa-info-circle"></i></a></td>
+			</tr>
+			<tr>
+				<td>2018</td>
+				<td>Mozilla Firefox</td>
+				<td>Mozilla Firefox deployed a fix on
+					Firefox 46 (CVE-2016-2813) for sensor access model Vulnerabilities</td>
+				<td><a href="https://www.mozilla.org/en-US/security/advisories/mfsa2016-43/"><i
+							class="fas fa-info-circle"></i></a></td>
+			</tr>
+			<tr>
+				<td>2018</td>
+				<td>Apple iOS</td>
+				<td>Apple included a fix on Safari in IOS 9.3 (CVE-2016-1780) for sensor
+					access model
+					Vulnerabilities</td>
+				<td><a href="https://support.apple.com/en-gb/HT206166"><i class="fas fa-info-circle"></i></a>
+				</td>
+			</tr>
+			<tr>
+				<td>2016</td>
+				<td>W3C</td>
+				<td>Specific Privacy and Security section added to the Motion/Orientation
+					standard
+					document</td>
+				<td><a href="https://www.w3.org/TR/2016/CR-orientation-event-20160818/"><i
+							class="fas fa-info-circle"></i></a></td>
+			</tr>
+			<tr>
+				<td>2014</td>
+				<td>Apple Safari</td>
+				<td>Vulnerabilities found in Private Browsing (bug report #14685058)</td>
+				<td><a href="./projects/economist.html"><i class="fas fa-info-circle"></i></a></td>
+			</tr>
+			</tbody>
+		</table>
+
+
+
+
+		<h1 class="title">Media Appearances</h1>
+
+
+		<h1 class="title">Past affiliations</h1>
+		<div class="content">
+			<ul>
+				<li>Assistant Professor (Lecturer) at Department of Computer Science, Durham University, (August
+					2020
+					2020 - January 2023)</li>
+				<li>Research Associate (Postdoctoral Researcher) at the Secure and Resilient Systems (SRS) Group
+					of
+					Newcastle University, Newcastle upon Tyne, UK, working with Prof. Aad van Moorsel (January
+					2019 - August 2020)</li>
+				<li>Research Associate (Postdoctoral Researcher) at the Secure and Resilient Systems (SRS) Group
+					of
+					Newcastle University, Newcastle upon Tyne, UK, working with Prof. Feng Hao (June 2018 -
+					January 2019)</li>
+				<li>PhD at Newcastle University, Newcastle upon Tyne, UK, under supervision of Prof. Feng Hao,
+					<a href=/extra/Toreini-Thesis.pdf>Thesis </a>
+				</li>
+			</ul>
+		</div>
+	</section>
 
 	</div>
-
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-	<!-- Bootstrap core JavaScript
-================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="./dist/js/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 
