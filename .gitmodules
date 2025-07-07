@@ -1,0 +1,6 @@
+[submodule "new-home/themes/archie-zola"]
+	path = new-home/themes/archie-zola
+	url = https://github.com/XXXMrG/archie-zola.git
+[submodule "new-home/themes/apollo"]
+	path = new-home/themes/apollo
+	url = https://github.com/not-matthias/apollo
