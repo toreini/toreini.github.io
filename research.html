@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<link href="dist/css/starter.css" rel="stylesheet">
+	<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+	<title>Ehsan Toreini @ Surrey University</title>
+</head>
+
+
+<body>
+
+	<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="https://www.surrey.ac.uk">
+				<img src="msr/logo.png" width="112" height="28">
+			</a>
+
+			<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+				data-target="navbarBasicExample">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+		</div>
+
+		<div class="navbar-menu">
+			<div class="navbar-start">
+				<a class="navbar-item" href="./index.html">
+					Home
+				</a>
+
+			</div>
+
+			<div class="navbar-end">
+				<a class="navbar-item" href="index.html#about">
+					About
+				</a>
+				<a class="navbar-item" href="research.html">
+					Research
+				</a>
+				<a class="navbar-item" href="index.html#papers">
+					Publications
+				</a>
+				<a class="navbar-item" href="index.html#teaching">
+					Teaching
+				</a>
+				<a class="navbar-item" href="index.html
+				#misc">
+					Misc.
+				</a>
+			</div>
+	</nav>
+
+
+	<section class="section">
+		<h1 class="title">Research Interests (see <a href="index.html#research"> my papers</a> for detail)</h1>
+
+		<div class="tabs is-toggle is-boxed is-fullwidth is-large">
+			<ul>
+				<li class="tab is-active" onclick="openTab(event,'physicalSec')">
+					<a>
+						<span>Physical Security</span>
+					</a>
+				</li>
+				<li class="tab" onclick="openTab(event,'trustML')">
+					<a>
+						<span>Trustworthy Machine Learning</span>
+					</a>
+				</li>
+				<li class="tab" onclick="openTab(event,'webSec')">
+					<a>
+						<span>Web Security</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="container section">
+			<div id="physicalSec" class="content-tab">
+				<div class="content">
+					<div class="columns">
+						<div class="column">
+							<blockquote>
+								<h2 class="subtitle">developing authentication protocols to track physical objects</h2>
+
+								<ul>
+									<li>Digital Fingerprinting of physical objects</li>
+									<li>Crytographic protocols to authenticate objects</li>
+								</ul>
+
+
+								<h2 class="subtitle">Side Channel Privacy Leakages</h2>
+
+								<ul>
+									<li>Sensor-based privacy leakages</li>
+									<li>Medical IoT connection hijacking</li>
+								</ul>
+							</blockquote>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div id="trustML" class="content-tab" style="display:none">
+				<div class="content">
+					<div class="columns">
+						<div class="column">
+							<blockquote>
+								<h2 class="subtitle">Cryptographic protocols for ML governance</h2>
+
+								<ul>
+									<li>Verifiable Auditing for Fairness</li>
+									<li>Decentralised Black-box Auditing of ML models</li>
+								</ul>
+
+								<h2 class="subtitle">Socio-Technical perception of trust and trustworthiness in ML
+									systems
+								</h2>
+
+								<ul>
+									<li>Trustworthy ML technologies</li>
+									<li>Trust perception in various ML-based usecases</li>
+								</ul>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="webSec" class="content-tab" style="display:none">
+				<div class="content">
+					<div class="columns">
+						<div class="column">
+							<blockquote>
+								<h2 class="subtitle">Malicious Browser Extensions</h2>
+
+								<ul>
+									<li>Protections against malicious browser extensions</li>
+									<li>Man-in-the-Browser attacks</li>
+								</ul>
+
+								<h2 class="subtitle">Web Tracking and Privacy Enhancing Technologies</h2>
+
+								<ul>
+									<li>Tracking in different platforms</li>
+									<li>Privacy leakages in web apps</li>
+								</ul>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function openTab(evt, tabName) {
+				var i, x, tablinks;
+				x = document.getElementsByClassName("content-tab");
+				for (i = 0; i < x.length; i++) {
+					x[i].style.display = "none";
+				}
+				tablinks = document.getElementsByClassName("tab");
+				for (i = 0; i < x.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+				}
+				document.getElementById(tabName).style.display = "block";
+				evt.currentTarget.className += " is-active";
+			}
+		</script>
+
+
+
+
+
+		<!--
+					<h2>Previous Research Highlights</h2>
+				<p>Some of my previous projects are listed as bellows:
+				</p>
+				<div class="features">
+					<section>
+						<span class="icon solid major fa-fingerprint"></span>
+						<h3>Texture-based Paper Sheet Fingerprinting</h3>
+						<p>a novel, reliable and fast identification adn authentication mechanisms based on unique
+							texture patterns of
+							a regular A4 paper
+							sheet using off-the-shelf equipment. <a href="./projects/fingerprinting.html"><i
+									class="fas fa-info-circle"></i></a></p>
+						<h3>Impact Summary</h3>
+						<ul>
+							<li>Two registered patents in the US</li>
+							<li>Several Media Coverage</li>
+						</ul>
+					</section>
+					<section>
+						<span class="icon solid major fa-mobile-alt"></span>
+						<h3>Mobile Sensor Security</h3>
+						<p>The first in-browser attack to mobile sensors using JavaScript sensor APIs. Here, we
+							stealthily collect sensor data and infer user touch actions, PINs and passwords with high
+							accuracy.<a href="./projects/jsattack.html"><i class="fas fa-info-circle"></i></a></p>
+						<h3>Impact Summary</h3>
+						<ul>
+							<li>Patched Severe Vulnerabilities in Mozilla Firefox, Google Chrome and Applie Safari</li>
+							<li>W3C deviceorientation documentation added "Security and Privacy" section citing our work
+							</li>
+							<li>Several Media Coverage</li>
+						</ul>
+					</section>
+					<section>
+						<span class="icon brands major fa-chrome"></span>
+						<h3>Protection against malicious Browser Extensions</h3>
+						<p> Novel Protocol to establish a secure environment free
+							of tampering in presence of malicious browser extensions. This is the first in-browser
+							protection against Man-in-the-Browser (MitB) attacks.<a href="./projects/domtegrity.html"><i
+									class="fas fa-info-circle"></i></a></p>
+
+					</section>
+
+					<section>
+						<span class="icon solid major fa-balance-scale"></span>
+						<h3>Trustworthy Machine Learning</h3>
+						<p>We address this fundamental question: "Should we trust machine learning or not?". To answer
+							this question, we examine the technical qualities that a machine learning algorithm should
+							possess to be considered as trustworthy by general public.<a
+								href="./projects/fingerprinting.html"><i class="fas fa-info-circle"></i></a></p>
+					</section>
+				</div>
+			-->
+		<h1 class="title">Research Team</h1>
+		<div class="content">
+			<p>I am expanding my team for now so keep an eye on any upcoming hiring notifications.</p>
+
+			<h5>Current members:</h5>
+			<ul>
+				<li class="list-item"><b><a href="https://www.surrey.ac.uk/people/james-m-clarke">James Clarke</a></b> (PhD candidate)</li>
+			</ul>
+			<h5>Alumni:</h5>
+			<ul>
+				<li class="list-item"><b><a href="https://www.dwresearch.online/">Patrick Wake</a></b> (PhD
+					candidate,
+					Global Head
+					of Information Security, FDM Group), co-supervised with Prof. Sue Black.</li>
+				<li class="list-item"><b><a href="https://www.durham.ac.uk/staff/amira-a-saleem/">Amira
+							Alrewetae</a></b> (PhD
+					candidate), co-supervised with Dr. Gaganjeet Aujla</li>
+				<li class="list-item"><b><a href="https://joshua-harrison.com/">Josh Harrison</a></b> (Research
+					Project,
+					2022) --> Software Development Engineer @ Amazon uk</li>
+				<li class="list-item"><b><a href="https://www.linkedin.com/in/jack-reeves-518669144/">Jack
+							Reeves</a></b>
+					(Research Project,
+					2022) --> Digital Consultant @ Newton Europe </li>
+				<li class="list-item"><b><a href="https://www.linkedin.com/in/jia-xiu-sai-a80825169/">Jia Xiu
+							Sai</a></b>
+					(Research Project, 2022)
+					--> Graduate Software Engineer @ THG</li>
+				<li class="list-item"><b><a href="https://kjtian.github.io/">Max Dormon</a></b> (Research
+					Project,
+					2022)
+					-->
+					Software Engineer @ JPMorgn Chase
+				</li>
+			</ul>
+		</div>
+
+		<h1 class="title">Grants and Awards</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Year</th>
+					<th>Name</th>
+					<th>Description</th>
+					<!--<th>Fund</th>-->
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>2022-Now</td>
+					<td><a href="https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/W032481/1">AGENCY: Assuring
+							Citizen Agency in a World
+							with Complex Online Harms</a></td>
+					<td>Co-I in EPSRC funded project (See <a href="https://agencyresearch.net/"> project page</a>)</td>
+					<!--<td>£3k</td>-->
+				</tr>
+				<tr>
+					<td>2021-2023</td>
+					<td><a
+							href="https://petras-iot.org/project/cyber-security-and-privacy-in-fertility-technologies-cyfer/">Cyfer:
+							Cyber security
+							and Privacy in Fertility Technologies</a></td>
+					<td>Co-I in PETRAS funded project (See <a
+							href="https://sites.google.com/view/maryammjd/cyfer-project"> project page</a>)| <i
+							class="fa fa-vr-cardboard"></i> <a
+							href="https://royalhollowayartarchives.viewin360.co/share/collection/7Jnt3?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1">Virtual
+							Cyfer Art Exhibition</a></td>
+					<!--<td>£3k</td>-->
+				</tr>
+				<tr>
+					<td>2019</td>
+					<td><a href="https://standict.eu/">StandICT grant</a></td>
+					<td>Grant to facilitate standardization impact in ICT (see <a
+							href="https://www.standict.eu/sites/default/files/Final%20Impact%20Report%20Europe%E2%80%99s%20contributions%20to%20ICT%20Standardisation%20globally%20-%20Impacts%20from%20StandlCT.eu%20funding.pdf">
+							output in W3C annual meeting in Fukoaka, Japan)</a></td>
+					<!--<td>£3k</td>-->
+				</tr>
+				<tr>
+					<td>2017</td>
+					<td>Economist and Kaspersky cybersecurity award</td>
+					<td><a href="./projects/economist.html">Award on using Blockchain for e-voting.</a>  Our team was the only winner
+						outside the USA
+						in the top three finalists (among many international participations of esteemed
+						universities such as UCL)</td>
+					<!--<td>$3k</td>-->
+				</tr>
+
+			</tbody>
+		</table>
+
+		<h1 class="title">Research Impact</h1>
+
+		<table class="table"">
+				<thead>
+					<tr>
+						<th>Year</th>
+						<th>Product</th>
+						<th>Project</th>
+						<th>Detail</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2023</td>
+						<td>W3C</td>
+						<td>Acknowledged in the standardisation for pressure sensors</td>
+						<td><a href=" https://www.w3.org/TR/compute-pressure/"><i class="fas fa-info-circle"></i></a></td>
+			</tr>
+			<tr>
+				<td>2019</td>
+				<td>Patent in the USA</td>
+				<td>Novel method for preventing counterfeiting of an object</td>
+				<td><a href=" https://patentimages.storage.googleapis.com/ed/48/7c/02b4251a99dd7b/US10680825.pdf"><i
+							class="fas fa-info-circle"></i></a></td>
+			</tr>
+			<tr>
+				<td>2018</td>
+				<td>Mozilla Firefox</td>
+				<td>Mozilla Firefox deployed a fix on
+					Firefox 46 (CVE-2016-2813) for sensor access model Vulnerabilities</td>
+				<td><a href="https://www.mozilla.org/en-US/security/advisories/mfsa2016-43/"><i
+							class="fas fa-info-circle"></i></a></td>
+			</tr>
+			<tr>
+				<td>2018</td>
+				<td>Apple iOS</td>
+				<td>Apple included a fix on Safari in IOS 9.3 (CVE-2016-1780) for sensor
+					access model
+					Vulnerabilities</td>
+				<td><a href="https://support.apple.com/en-gb/HT206166"><i class="fas fa-info-circle"></i></a>
+				</td>
+			</tr>
+			<tr>
+				<td>2016</td>
+				<td>W3C</td>
+				<td>Specific Privacy and Security section added to the Motion/Orientation
+					standard
+					document</td>
+				<td><a href="https://www.w3.org/TR/2016/CR-orientation-event-20160818/"><i
+							class="fas fa-info-circle"></i></a></td>
+			</tr>
+			<tr>
+				<td>2014</td>
+				<td>Apple Safari</td>
+				<td>Vulnerabilities found in Private Browsing (bug report #14685058)</td>
+				<td><a href="./projects/economist.html"><i class="fas fa-info-circle"></i></a></td>
+			</tr>
+			</tbody>
+		</table>
+
+		<h1 class="title">Media Appearances</h1>
+
+		<div class="content">
+			<ul>
+				<li><strong>Deep Learning Acoustic Side Channel Attack:</strong> (selected): ACM Communications, E&T,
+					Keesing, Gizmodo</li>
+				<li><strong>Polymer Banknote Fingerprinting:</strong> (selected): ACM Communications, E&T, Keesing,
+					Gizmodo</li>
+				<li><strong>Paper sheet Fingerprinting:</strong> (selected): the Economist and Wall Street Journal</li>
+				<li><strong>Mobile Sensor Security:</strong> (selected): NU Press, BBC, Guardian, Telegraph,
+					Independent, NYPost, Sun, The Australian, Economic Times, TechCrunch, Engadget, Popular Science,
+					Science Friday (Americal National Radio), ars Technica, Reddit, xda-developers, CBC News, German
+					Public Radio, Die Welt (German), Sina (Chinese), Masjable (French), Lavoz (Spanish).</li>
+				<li><strong>blockchain-based e-voting system</strong> CoinDesk</li>
+			</ul>
+		</div>
+
+
+		<h1 class="title">Past affiliations</h1>
+		<div class="content">
+			<ul>
+				<li>Assistant Professor (Lecturer) at Department of Computer Science, Durham University, (August
+					2020
+					2020 - January 2023)</li>
+				<li>Research Associate (Postdoctoral Researcher) at the Secure and Resilient Systems (SRS) Group
+					of
+					Newcastle University, Newcastle upon Tyne, UK, working with Prof. Aad van Moorsel (January
+					2019 - August 2020)</li>
+				<li>Research Associate (Postdoctoral Researcher) at the Secure and Resilient Systems (SRS) Group
+					of
+					Newcastle University, Newcastle upon Tyne, UK, working with Prof. Feng Hao (June 2018 -
+					January 2019)</li>
+				<li>PhD at Newcastle University, Newcastle upon Tyne, UK, under supervision of Prof. Feng Hao,
+					<a href=/extra/Toreini-Thesis.pdf>Thesis </a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	</div>
+
+</body>
+
+</html>
