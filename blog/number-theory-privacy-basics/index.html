@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;toreini.github.io">
+
+    
+
+    
+    
+    
+        <title>
+            
+                Number Theory for Privacy (Foundations)
+            
+        </title>
+
+        
+            <meta property="og:title"
+                  content="Number Theory for Privacy (Foundations)" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="Senior Research Engineer &amp; Web Standards Technologist" />
+        
+    
+
+    
+        
+            <meta name="description" content="Senior Research Engineer &amp; Web Standards Technologist" />
+        
+    
+
+    
+    <link rel="icon" type="image/png" href=favicon.ico />
+
+    
+    
+        <link href=https://toreini.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    <link rel="alternate"
+          type="application/atom+xml"
+          title="Ehsan Toreini"
+          href="https://toreini.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://toreini.github.io/theme/light.css" />
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://toreini.github.io/theme/dark.css"
+              media="(prefers-color-scheme: dark)" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+        <script src=https://toreini.github.io/js/themetoggle.js></script>
+
+        
+            <script>
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    setTheme("dark");
+                } else {
+                    setTheme("light");
+                }
+            </script>
+        
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://toreini.github.io/main.css" />
+
+    
+
+    <script defer
+                    src="https://toreini.github.io/search_index.en.js?h=dd1092147e2acdd6ee22"></script>
+        <script defer
+                src="https://toreini.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script></head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        
+            <a href=https:&#x2F;&#x2F;toreini.github.io>Ehsan Toreini</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user=qN0jFWwAAAAJ&amp;hl=en" class="social">
+                    <img alt="Scholar"
+                         src="https://toreini.github.io/icons/social/google.svg">
+                </a>
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;toreini" class="social">
+                    <img alt="GitHub"
+                         src="https://toreini.github.io/icons/social/github.svg">
+                </a>
+            
+                <a rel="me" href="https:&#x2F;&#x2F;uk.linkedin.com&#x2F;in&#x2F;toreini" class="social">
+                    <img alt="LinkedIn"
+                         src="https://toreini.github.io/icons/social/linkedin.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+            <a href=https://toreini.github.io/research style="margin-left: 0.25em">&#x2F;Research</a>
+        
+            <a href=https://toreini.github.io/publications style="margin-left: 0.25em">&#x2F;Publications</a>
+        
+            <a href=https://toreini.github.io/about style="margin-left: 0.25em">&#x2F;Misc</a>
+        
+            <a href=https://toreini.github.io/blog style="margin-left: 0.25em">&#x2F;Dumps</a>
+        
+            <a href=https://toreini.github.io/tags style="margin-left: 0.25em">&#x2F;tags</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://toreini.github.io/icons/search.svg"
+                     alt="Search"
+                     class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                 class="search-modal js"
+                 role="dialog"
+                 aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                               role="combobox"
+                               autocomplete="off"
+                               spellcheck="false"
+                               aria-expanded="false"
+                               aria-controls="results-container"
+                               placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    <div class="page-header">
+        Number Theory for Privacy (Foundations)<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-07-14</time>
+                    
+
+                    
+
+                    
+
+                    :: 1952 Words
+
+                    
+                    
+                        <span class="tags-label">:: Tags:</span>
+                        <span class="tags">
+                                <a href="https://toreini.github.io/tags/number-theory/"
+                                   class="post-tag">number theory</a>
+                                ,
+                            
+                                <a href="https://toreini.github.io/tags/foundation/"
+                                   class="post-tag">foundation</a>
+                                ,
+                            
+                                <a href="https://toreini.github.io/tags/privacy/"
+                                   class="post-tag">privacy</a>
+                                ,
+                            
+                                <a href="https://toreini.github.io/tags/cryptography/"
+                                   class="post-tag">cryptography</a>
+                                
+                            
+                        </span>
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            
+            
+
+            <section class="body">
+                <p>You might remember number theory from school as the study of integers, whole numbers, their properties, and relationships. It might have seemed like abstract concepts, far removed from the digital world. But surprisingly, this "pure" mathematics is the secret sauce that underpins almost all modern cryptography.</p>
+<p>Before we dive into the advanced techniques in privacy, let's lay a quick foundation of some number theory basics. These concepts might sound intimidating, but they're surprisingly intuitive once you get the hang of them, and they are the secret ingredients that make modern cryptography possible.</p>
+<h1 id="modulo-a-mod-n-the-remainder-after-division">Modulo $(a (mod n))$: The Remainder After Division</h1>
+<p>Think of a clock. If it's 10 o'clock and you add 4 hours, it's 2 o'clock, not 14. We say $14 \equiv 2 (mod 12)$. "Modulo n" simply means we're only interested in the remainder when we divide by n. This "wraparound" property is crucial for making computations finite and predictable in cryptography.</p>
+<h1 id="multiplicative-group-of-integers-modulo-n-mathbb-z-n-the-set-of-co-prime-numbers">Multiplicative Group of Integers Modulo n $\mathbb{Z}^*_n$: The Set of "Co-prime" Numbers</h1>
+<p>Imagine a set of numbers, say ${1,2,3,\cdots,n−1}$. The "multiplicative group modulo n", denoted $\mathbb{Z}^*_n$, is a special subset of these numbers. It includes only those numbers that are coprime to n (meaning their greatest common divisor with n is 1). Why is this important? Because only these numbers have a multiplicative inverse modulo $n – a$ number you can multiply them by to get 1 (like how $2 \times 0.5=1$). This property is essential for division-like operations in cryptographic algorithms.</p>
+<p>Let's use a straightforward example to illustrate the multiplicative group of integers modulo n. We'll use $n = 10$.</p>
+<p>The set of all integers modulo 10 is $Z_{10} ={0,1,2,3,4,5,6,7,8,9}$. The multiplicative group of integers modulo 10, denoted as $Z^*_{10}$ , is a subset of these numbers. It includes only the numbers that are coprime to 10. Two numbers are coprime if their greatest common divisor (GCD) is 1.</p>
+<p>Let's check each number in $Z_{10}$:</p>
+<p>$GCD(1,10)=1$. So, 1 is in $Z^*_{10}$.</p>
+<p>GCD(2,10)=2. So, 2 is NOT in $Z^*_{10}$.</p>
+<p>GCD(3,10)=1. So, 3 is in $Z^*_{10}$.</p>
+<p>GCD(4,10)=2. So, 4 is NOT in $Z^*_{10}$.</p>
+<p>GCD(5,10)=5. So, 5 is NOT in $Z^*_{10}$.</p>
+<p>GCD(6,10)=2. So, 6 is NOT in $Z^*_{10}$.</p>
+<p>GCD(7,10)=1. So, 7 is in $Z^*_{10}$.</p>
+<p>GCD(8,10)=2. So, 8 is NOT in $Z^*_{10}$.</p>
+<p>GCD(9,10)=1. So, 9 is in $Z^*_{10}$.</p>
+<p>Therefore, the multiplicative group of integers modulo 10 is:</p>
+<p>$Z^*_{10}={1,3,7,9}$</p>
+<p>A key property of this group is that every element has a multiplicative inverse within the group. The inverse of a number in a multiplicative group is the number you multiply it by to get the identity element, which is 1. For example, in $\mathbb{Z}^*_{10}$ :</p>
+<ul>
+<li>The inverse of 3 is 7, because $3×7=21 \equiv 1 (mod 10)$.</li>
+<li>The inverse of 9 is 9, because $9×9=81 \equiv 1 (mod 10)$.</li>
+</ul>
+<h1 id="generator-of-a-group-the-seed-of-all-numbers">Generator (of a Group): The "Seed" of All Numbers</h1>
+<p>In certain multiplicative groups (especially those modulo a prime number), there is a special element called a <strong>"generator"</strong>. If you take a generator and repeatedly multiply it by itself (modulo n), you can produce every other number in that group before repeating.</p>
+<p>Example: In $\mathbb{Z}^*_7 ={1,2,3,4,5,6}$, let's pick $g=3$:</p>
+<p>$3^1 \equiv 3 (mod 7)$
+$3^2 \equiv 9 \equiv 2 (mod 7)$
+$3^3 \equiv 2.3 \equiv 6 (mod 7)$
+$3^4 \equiv 6.3 \equiv 4 (mod 7)$
+$3^5 \equiv 4.3 \equiv 5 (mod 7)$
+$3^6 \equiv 3.5 \equiv 1 (mod 7)$</p>
+<p>See? We "generated" all numbers ${1,2,3,4,5,6}$ using only 3. This property is fundamental for many cryptographic schemes.</p>
+<p>Finding a generator for a multiplicative group of integers modulo n can be difficult. There's no simple formula to just plug in $n$ and get a generator. Instead, you need to use a systematic process of checking elements to see if they satisfy the definition of a generator.</p>
+<p>The most common and effective method for a group $\mathbb{Z}^*_p$, (where p is a prime number) is to test elements to find one whose order is equal to the size of the group, which is $\varphi(p)=p−1$.</p>
+<p>Steps to Find a Generator in $\mathbb{Z}^*_p$
+​</p>
+<ol>
+<li>
+<p>Calculate the order of the group.
+The order of the group $\mathbb{Z}^*_p$ is simply $p−1$. This is the number of elements in the group.</p>
+</li>
+<li>
+<p>Find the prime factors of the group's order.
+Factorize p−1 into its unique prime factors. Let's say the prime factors are $q_1, q_2, \cdots, q_k$.</p>
+</li>
+<li>
+<p>Choose a candidate element.
+Pick a number $a$ from the group $\mathbb{Z}^*_p$  (so $1 \lt a \lt p$).</p>
+</li>
+<li>
+<p>Test the candidate's powers.
+For each prime factor $q_ i$  of $p−1$, calculate $a^{(p−1)/q_i} mod p$.
+If any of these calculations result in 1, then a is not a generator. This is because its order must be a divisor of $(p−1)/q_i$ , which is less than the group's order, p−1.</p>
+</li>
+<li>
+<p>Declare a generator.
+If $a^{(p−1)/q_i} \not\equiv 1 (mod p)$ for all prime factors $q_i$ of p−1, then a is a generator of the group. Its order must be p−1 because, by Lagrange's theorem, the order of any element must divide the order of the group.</p>
+</li>
+<li>
+<p>If the order doesn't divide any of the smaller numbers $(p−1)/q_i$ , it must be p−1.</p>
+</li>
+</ol>
+<p>Example: Let's apply this method to the group $\mathbb{Z}^*_{11}$.</p>
+<ol>
+<li>
+<p>Group Order: The group is modulo a prime p=11, so the order of the group is $p−1=11−1=10$.</p>
+</li>
+<li>
+<p>Prime Factors of the Order: The prime factors of 10 are 2 and 5.</p>
+</li>
+<li>
+<p>Test a Candidate: Let's try $a=2$.</p>
+</li>
+<li>
+<p>Test Powers:</p>
+<ol>
+<li>Test with the prime factor 2: Calculate $2^{10/2} (mod 11)$.
+$2^5 = 32 (mod 11) = 10$.
+Since $10 \not\equiv 1(mod11)$, we can continue.</li>
+<li>Test with the prime factor 5: Calculate $2^{10/5} (mod11)$.
+$2^2 = 4 (mod 11)=4$.
+Since $4 \not\equiv 1 (mod 11)$, we can continue.</li>
+</ol>
+</li>
+</ol>
+<p>Result: Since both tests failed to produce 1, we can conclude that 2 is a generator of the group $\mathbb{Z}^*_{11}$.</p>
+<p>Let's test another candidate, say $a=3$, to see what a non-generator looks like.</p>
+<p>Test with the prime factor 2: Calculate $3^{10/2} (mod 11)$. $3^5 =243(mod 11)= 1$.
+Since the result is 1, we know that 3 is not a generator. Its order is a divisor of 5, not 10. The powers of 3 will only generate a subgroup of size 5: ${3^1 ,3^2,3^3,3^4,3^5}={3,9,5,4,1}$.</p>
+<h1 id="discrete-logarithm-problem-the-hardness-behind-key-exchange">Discrete Logarithm Problem: The Hardness Behind Key Exchange</h1>
+<p>If I tell you $g=2$, $x=3$, and $p=11$, you can easily calculate $2^3(mod 11) = 8$. This is modular exponentiation.</p>
+<p>The Discrete Logarithm Problem is the reverse: if I tell you $g=2$, $h=8$, and $p=11$, find $x$ such that $2^x \equiv 8 (mod 11)$. In this small case, it's easy $(x=3)$. But with very large numbers, this problem becomes incredibly difficult for even the fastest computers. This "one-way" mathematical trapdoor is what secures key exchange protocols like Diffie-Hellman.</p>
+<p>Let's use a small, manageable example to illustrate the concept. In real-world cryptography, the numbers would be a hundred times larger or more.</p>
+<p>We'll work with the multiplicative group of integers modulo 13, which is $\mathbb{Z}^*_{13} ={1,2,3,4,5,6,7,8,9,10,11,12}$.</p>
+<p>The known information:</p>
+<ul>
+<li>
+<p>A prime number (the modulus), $p=13$.</p>
+</li>
+<li>
+<p>A generator of the group, $g=2$.</p>
+</li>
+<li>
+<p>A number in the group, $h=10$.</p>
+</li>
+</ul>
+<p>The problem to solve: Find the secret exponent, x, such that the following equation holds:</p>
+<ul>
+<li>$g^x \equiv h (mod p)$</li>
+<li>$2^x \equiv 10 (mod 13)$</li>
+</ul>
+<p><strong>Solving the DLP (in this simple case)</strong>
+With such a small modulus, we can solve this by simply checking the powers of the generator, $g=2$:</p>
+<p>$2^1 \equiv 2 (mod 13)$
+$2^2 \equiv 4 (mod 13)$
+$2^3 \equiv 8 (mod 13)$
+$2^4 \equiv 3 (mod 13)$
+$2^5 \equiv 32 \equiv 6 (mod 13)$
+$2^6 \equiv 64 \equiv 12 (mod 13)$
+$2^7 \equiv 128 \equiv 11 (mod 13)$
+$2^8 \equiv 256 \equiv 9 (mod 13)$
+$2^9 \equiv 512 \equiv 5 (mod 13)$
+$2^10 \equiv 1024 \equiv 10 (mod 13)$</p>
+<p>As you can see, we found that $x=10$. In this small example, it was easy to find the discrete logarithm by brute force.</p>
+<h3 id="finite-field-gf-p-or-mathbb-f-p-a-universe-of-well-behaved-numbers">Finite Field ($GF(p)$ or $\mathbb{F}_p$): A Universe of Well-Behaved Numbers</h3>
+<p>A "field" in mathematics is a set of numbers where you can perform addition, subtraction, multiplication, and division (except by zero) just like with real numbers, and they behave as expected (e.g., multiplication is commutative, there are identity elements). A "finite field" simply means this set of numbers is limited, it only contains a finite number of elements. The simplest finite fields are the integers modulo a prime number p, often denoted $GF(p)$ or $\mathbb{F}_p$. These fields provide a structured environment for cryptographic operations.</p>
+<p><strong>Example: The Finite Field $\mathbb{F}_5$</strong>
+Let's use the prime number p=5 to create a finite field. The set of elements in this field is simply the integers modulo 5:</p>
+<p>$GF(5)={0,1,2,3,4}$</p>
+<p>All operations in this field are performed "modulo 5," meaning you take the remainder after dividing by 5.</p>
+<p><strong>Addition</strong>
+Addition works as you would expect, with the result wrapping around.</p>
+<p>$2+3=5 \equiv 0(mod 5)$</p>
+<p>$3+4=7 \equiv 2(mod 5)$</p>
+<p>The additive inverse of 2 is 3, because $2+3=0$.</p>
+<p><strong>Subtraction</strong>
+Subtraction is the same as adding the additive inverse.</p>
+<p>$2−4 \equiv 2+(−4) \equiv 2+1 \equiv 3(mod 5)$ (since the additive inverse of 4 is 1).</p>
+<p><strong>Multiplication</strong>
+Multiplication also wraps around.</p>
+<p>$2×3=6 \equiv 1(mod 5)$</p>
+<p>$3×4 \equiv 12 \equiv 2(mod 5)$</p>
+<p><strong>Division</strong>
+Division in a finite field means multiplying by the multiplicative inverse. The inverse of a number is the number you multiply it by to get 1.</p>
+<p>$2^(−1)$ (the inverse of 2) is 3, because $2×3=6 \equiv 1(mod 5)$.</p>
+<p>$4^(−1)$ (the inverse of 4) is 4, because $4×4=16 \equiv 1(mod 5)$.</p>
+<p>Since every non-zero element in a finite field has a multiplicative inverse, division is always possible. This property makes finite fields a powerful tool in cryptography and coding theory.</p>
+<p>You can find a finite field by starting with a prime number p and a positive integer n. Every finite field must have $p^n$  elements, where p is a prime number. There are no finite fields with a number of elements that is not a prime power.</p>
+<h1 id="lattices-grids-of-points-and-hard-problems">Lattices: Grids of Points and Hard Problems</h1>
+<p>Imagine a regular, repeating pattern of points in space, like the corners of a tiled floor extending infinitely in all directions. This is a simplified view of a mathematical lattice. Cryptographers use lattices in higher dimensions (many more than 2 or 3). Certain problems involving these high-dimensional lattices, like finding the shortest non-zero vector or the closest vector to a given point, are believed to be extremely hard to solve, even for quantum computers. This computational hardness is being harnessed for the next generation of cryptographic systems known as "lattice-based cryptography."</p>
+<p>With these basic concepts in mind, let's explore how number theory provides the powerful, subtle tools for cutting-edge privacy-preserving technologies.</p>
+
+            </section>
+        </article>
+    </main>
+
+
+
+        
+        
+        
+
+        
+        <div class="giscus"></div>
+        <script src="https://utteranc.es/client.js" repo="toreini/toreini.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+</script>
+
+        
+    </div>
+
+    
+    <script>
+        MathJax = {
+            tex: {
+                packages: { '[+]': ['ams'] },  // Include AMS package
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            loader: {
+                load: ['[tex]/ams']
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+</body>
+
+</html>
