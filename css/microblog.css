@@ -1,0 +1,30 @@
+.microblog {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.microblog h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.microblog-entry {
+  margin-bottom: 2em;
+}
+
+.microblog-entry h2 {
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+.microblog-entry time {
+  color: #888;
+  font-size: 0.9em;
+}
+
+.microblog-entry .entry-content {
+  margin-top: 0.5em;
+  line-height: 1.6;
+}

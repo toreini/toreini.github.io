@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Ehsan Toreini - privacy</title>
+    <subtitle>Senior Research Engineer &amp; Web Standards Technologist</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://toreini.github.io/tags/privacy/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://toreini.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-08-08T00:00:00+00:00</updated>
+    <id>https://toreini.github.io/tags/privacy/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Number Theory for Privacy (Foundations)</title>
+        <published>2025-08-08T00:00:00+00:00</published>
+        <updated>2025-08-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Ehsan Toreini
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://toreini.github.io/blog/number-theory-privacy-basics/"/>
+        <id>https://toreini.github.io/blog/number-theory-privacy-basics/</id>
+        
+        <content type="html" xml:base="https://toreini.github.io/blog/number-theory-privacy-basics/">&lt;p&gt;You might remember number theory from school as the study of integers, whole numbers, their properties, and relationships. It might have seemed like abstract concepts, far removed from the digital world. But surprisingly, this &quot;pure&quot; mathematics is the secret sauce that underpins almost all modern cryptography.&lt;&#x2F;p&gt;
+&lt;p&gt;Before we dive into the advanced techniques in privacy, let&#x27;s lay a quick foundation of some number theory basics. These concepts might sound intimidating, but they&#x27;re surprisingly intuitive once you get the hang of them, and they are the secret ingredients that make modern cryptography possible.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;modulo-a-mod-n-the-remainder-after-division&quot;&gt;Modulo $(a (mod n))$: The Remainder After Division&lt;&#x2F;h1&gt;
+&lt;p&gt;Think of a clock. If it&#x27;s 10 o&#x27;clock and you add 4 hours, it&#x27;s 2 o&#x27;clock, not 14. We say $14 \equiv 2 (mod 12)$. &quot;Modulo n&quot; simply means we&#x27;re only interested in the remainder when we divide by n. This &quot;wraparound&quot; property is crucial for making computations finite and predictable in cryptography.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;multiplicative-group-of-integers-modulo-n-mathbb-z-n-the-set-of-co-prime-numbers&quot;&gt;Multiplicative Group of Integers Modulo n $\mathbb{Z}^*_n$: The Set of &quot;Co-prime&quot; Numbers&lt;&#x2F;h1&gt;
+&lt;p&gt;Imagine a set of numbers, say ${1,2,3,\cdots,n−1}$. The &quot;multiplicative group modulo n&quot;, denoted $\mathbb{Z}^*_n$, is a special subset of these numbers. It includes only those numbers that are coprime to n (meaning their greatest common divisor with n is 1). Why is this important? Because only these numbers have a multiplicative inverse modulo $n – a$ number you can multiply them by to get 1 (like how $2 \times 0.5=1$). This property is essential for division-like operations in cryptographic algorithms.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s use a straightforward example to illustrate the multiplicative group of integers modulo n. We&#x27;ll use $n = 10$.&lt;&#x2F;p&gt;
+&lt;p&gt;The set of all integers modulo 10 is $Z_{10} ={0,1,2,3,4,5,6,7,8,9}$. The multiplicative group of integers modulo 10, denoted as $Z^*_{10}$ , is a subset of these numbers. It includes only the numbers that are coprime to 10. Two numbers are coprime if their greatest common divisor (GCD) is 1.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s check each number in $Z_{10}$:&lt;&#x2F;p&gt;
+&lt;p&gt;$GCD(1,10)=1$. So, 1 is in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;GCD(2,10)=2. So, 2 is NOT in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;GCD(3,10)=1. So, 3 is in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;GCD(4,10)=2. So, 4 is NOT in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;GCD(5,10)=5. So, 5 is NOT in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;GCD(6,10)=2. So, 6 is NOT in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;GCD(7,10)=1. So, 7 is in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;GCD(8,10)=2. So, 8 is NOT in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;GCD(9,10)=1. So, 9 is in $Z^*_{10}$.&lt;&#x2F;p&gt;
+&lt;p&gt;Therefore, the multiplicative group of integers modulo 10 is:&lt;&#x2F;p&gt;
+&lt;p&gt;$Z^*_{10}={1,3,7,9}$&lt;&#x2F;p&gt;
+&lt;p&gt;A key property of this group is that every element has a multiplicative inverse within the group. The inverse of a number in a multiplicative group is the number you multiply it by to get the identity element, which is 1. For example, in $\mathbb{Z}^*_{10}$ :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The inverse of 3 is 7, because $3×7=21 \equiv 1 (mod 10)$.&lt;&#x2F;li&gt;
+&lt;li&gt;The inverse of 9 is 9, because $9×9=81 \equiv 1 (mod 10)$.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;generator-of-a-group-the-seed-of-all-numbers&quot;&gt;Generator (of a Group): The &quot;Seed&quot; of All Numbers&lt;&#x2F;h1&gt;
+&lt;p&gt;In certain multiplicative groups (especially those modulo a prime number), there is a special element called a &lt;strong&gt;&quot;generator&quot;&lt;&#x2F;strong&gt;. If you take a generator and repeatedly multiply it by itself (modulo n), you can produce every other number in that group before repeating.&lt;&#x2F;p&gt;
+&lt;p&gt;Example: In $\mathbb{Z}^*_7 ={1,2,3,4,5,6}$, let&#x27;s pick $g=3$:&lt;&#x2F;p&gt;
+&lt;p&gt;$3^1 \equiv 3 (mod 7)$
+$3^2 \equiv 9 \equiv 2 (mod 7)$
+$3^3 \equiv 2.3 \equiv 6 (mod 7)$
+$3^4 \equiv 6.3 \equiv 4 (mod 7)$
+$3^5 \equiv 4.3 \equiv 5 (mod 7)$
+$3^6 \equiv 3.5 \equiv 1 (mod 7)$&lt;&#x2F;p&gt;
+&lt;p&gt;See? We &quot;generated&quot; all numbers ${1,2,3,4,5,6}$ using only 3. This property is fundamental for many cryptographic schemes.&lt;&#x2F;p&gt;
+&lt;p&gt;Finding a generator for a multiplicative group of integers modulo n can be difficult. There&#x27;s no simple formula to just plug in $n$ and get a generator. Instead, you need to use a systematic process of checking elements to see if they satisfy the definition of a generator.&lt;&#x2F;p&gt;
+&lt;p&gt;The most common and effective method for a group $\mathbb{Z}^*_p$, (where p is a prime number) is to test elements to find one whose order is equal to the size of the group, which is $\varphi(p)=p−1$.&lt;&#x2F;p&gt;
+&lt;p&gt;Steps to Find a Generator in $\mathbb{Z}^*_p$
+​&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Calculate the order of the group.
+The order of the group $\mathbb{Z}^*_p$ is simply $p−1$. This is the number of elements in the group.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Find the prime factors of the group&#x27;s order.
+Factorize p−1 into its unique prime factors. Let&#x27;s say the prime factors are $q_1, q_2, \cdots, q_k$.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose a candidate element.
+Pick a number $a$ from the group $\mathbb{Z}^*_p$  (so $1 \lt a \lt p$).&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Test the candidate&#x27;s powers.
+For each prime factor $q_ i$  of $p−1$, calculate $a^{(p−1)&#x2F;q_i} mod p$.
+If any of these calculations result in 1, then a is not a generator. This is because its order must be a divisor of $(p−1)&#x2F;q_i$ , which is less than the group&#x27;s order, p−1.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Declare a generator.
+If $a^{(p−1)&#x2F;q_i} \not\equiv 1 (mod p)$ for all prime factors $q_i$ of p−1, then a is a generator of the group. Its order must be p−1 because, by Lagrange&#x27;s theorem, the order of any element must divide the order of the group.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;If the order doesn&#x27;t divide any of the smaller numbers $(p−1)&#x2F;q_i$ , it must be p−1.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Example: Let&#x27;s apply this method to the group $\mathbb{Z}^*_{11}$.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Group Order: The group is modulo a prime p=11, so the order of the group is $p−1=11−1=10$.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Prime Factors of the Order: The prime factors of 10 are 2 and 5.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Test a Candidate: Let&#x27;s try $a=2$.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Test Powers:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Test with the prime factor 2: Calculate $2^{10&#x2F;2} (mod 11)$.
+$2^5 = 32 (mod 11) = 10$.
+Since $10 \not\equiv 1(mod11)$, we can continue.&lt;&#x2F;li&gt;
+&lt;li&gt;Test with the prime factor 5: Calculate $2^{10&#x2F;5} (mod11)$.
+$2^2 = 4 (mod 11)=4$.
+Since $4 \not\equiv 1 (mod 11)$, we can continue.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Result: Since both tests failed to produce 1, we can conclude that 2 is a generator of the group $\mathbb{Z}^*_{11}$.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s test another candidate, say $a=3$, to see what a non-generator looks like.&lt;&#x2F;p&gt;
+&lt;p&gt;Test with the prime factor 2: Calculate $3^{10&#x2F;2} (mod 11)$. $3^5 =243(mod 11)= 1$.
+Since the result is 1, we know that 3 is not a generator. Its order is a divisor of 5, not 10. The powers of 3 will only generate a subgroup of size 5: ${3^1 ,3^2,3^3,3^4,3^5}={3,9,5,4,1}$.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;discrete-logarithm-problem-the-hardness-behind-key-exchange&quot;&gt;Discrete Logarithm Problem: The Hardness Behind Key Exchange&lt;&#x2F;h1&gt;
+&lt;p&gt;If I tell you $g=2$, $x=3$, and $p=11$, you can easily calculate $2^3(mod 11) = 8$. This is modular exponentiation.&lt;&#x2F;p&gt;
+&lt;p&gt;The Discrete Logarithm Problem is the reverse: if I tell you $g=2$, $h=8$, and $p=11$, find $x$ such that $2^x \equiv 8 (mod 11)$. In this small case, it&#x27;s easy $(x=3)$. But with very large numbers, this problem becomes incredibly difficult for even the fastest computers. This &quot;one-way&quot; mathematical trapdoor is what secures key exchange protocols like Diffie-Hellman.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s use a small, manageable example to illustrate the concept. In real-world cryptography, the numbers would be a hundred times larger or more.&lt;&#x2F;p&gt;
+&lt;p&gt;We&#x27;ll work with the multiplicative group of integers modulo 13, which is $\mathbb{Z}^*_{13} ={1,2,3,4,5,6,7,8,9,10,11,12}$.&lt;&#x2F;p&gt;
+&lt;p&gt;The known information:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A prime number (the modulus), $p=13$.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;A generator of the group, $g=2$.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;A number in the group, $h=10$.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The problem to solve: Find the secret exponent, x, such that the following equation holds:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;$g^x \equiv h (mod p)$&lt;&#x2F;li&gt;
+&lt;li&gt;$2^x \equiv 10 (mod 13)$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;Solving the DLP (in this simple case)&lt;&#x2F;strong&gt;
+With such a small modulus, we can solve this by simply checking the powers of the generator, $g=2$:&lt;&#x2F;p&gt;
+&lt;p&gt;$2^1 \equiv 2 (mod 13)$
+$2^2 \equiv 4 (mod 13)$
+$2^3 \equiv 8 (mod 13)$
+$2^4 \equiv 3 (mod 13)$
+$2^5 \equiv 32 \equiv 6 (mod 13)$
+$2^6 \equiv 64 \equiv 12 (mod 13)$
+$2^7 \equiv 128 \equiv 11 (mod 13)$
+$2^8 \equiv 256 \equiv 9 (mod 13)$
+$2^9 \equiv 512 \equiv 5 (mod 13)$
+$2^10 \equiv 1024 \equiv 10 (mod 13)$&lt;&#x2F;p&gt;
+&lt;p&gt;As you can see, we found that $x=10$. In this small example, it was easy to find the discrete logarithm by brute force.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;finite-field-gf-p-or-mathbb-f-p-a-universe-of-well-behaved-numbers&quot;&gt;Finite Field ($GF(p)$ or $\mathbb{F}_p$): A Universe of Well-Behaved Numbers&lt;&#x2F;h3&gt;
+&lt;p&gt;A &quot;field&quot; in mathematics is a set of numbers where you can perform addition, subtraction, multiplication, and division (except by zero) just like with real numbers, and they behave as expected (e.g., multiplication is commutative, there are identity elements). A &quot;finite field&quot; simply means this set of numbers is limited, it only contains a finite number of elements. The simplest finite fields are the integers modulo a prime number p, often denoted $GF(p)$ or $\mathbb{F}_p$. These fields provide a structured environment for cryptographic operations.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Example: The Finite Field $\mathbb{F}_5$&lt;&#x2F;strong&gt;
+Let&#x27;s use the prime number p=5 to create a finite field. The set of elements in this field is simply the integers modulo 5:&lt;&#x2F;p&gt;
+&lt;p&gt;$GF(5)={0,1,2,3,4}$&lt;&#x2F;p&gt;
+&lt;p&gt;All operations in this field are performed &quot;modulo 5,&quot; meaning you take the remainder after dividing by 5.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Addition&lt;&#x2F;strong&gt;
+Addition works as you would expect, with the result wrapping around.&lt;&#x2F;p&gt;
+&lt;p&gt;$2+3=5 \equiv 0(mod 5)$&lt;&#x2F;p&gt;
+&lt;p&gt;$3+4=7 \equiv 2(mod 5)$&lt;&#x2F;p&gt;
+&lt;p&gt;The additive inverse of 2 is 3, because $2+3=0$.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Subtraction&lt;&#x2F;strong&gt;
+Subtraction is the same as adding the additive inverse.&lt;&#x2F;p&gt;
+&lt;p&gt;$2−4 \equiv 2+(−4) \equiv 2+1 \equiv 3(mod 5)$ (since the additive inverse of 4 is 1).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Multiplication&lt;&#x2F;strong&gt;
+Multiplication also wraps around.&lt;&#x2F;p&gt;
+&lt;p&gt;$2×3=6 \equiv 1(mod 5)$&lt;&#x2F;p&gt;
+&lt;p&gt;$3×4 \equiv 12 \equiv 2(mod 5)$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Division&lt;&#x2F;strong&gt;
+Division in a finite field means multiplying by the multiplicative inverse. The inverse of a number is the number you multiply it by to get 1.&lt;&#x2F;p&gt;
+&lt;p&gt;$2^(−1)$ (the inverse of 2) is 3, because $2×3=6 \equiv 1(mod 5)$.&lt;&#x2F;p&gt;
+&lt;p&gt;$4^(−1)$ (the inverse of 4) is 4, because $4×4=16 \equiv 1(mod 5)$.&lt;&#x2F;p&gt;
+&lt;p&gt;Since every non-zero element in a finite field has a multiplicative inverse, division is always possible. This property makes finite fields a powerful tool in cryptography and coding theory.&lt;&#x2F;p&gt;
+&lt;p&gt;You can find a finite field by starting with a prime number p and a positive integer n. Every finite field must have $p^n$  elements, where p is a prime number. There are no finite fields with a number of elements that is not a prime power.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;lattices-grids-of-points-and-hard-problems&quot;&gt;Lattices: Grids of Points and Hard Problems&lt;&#x2F;h1&gt;
+&lt;p&gt;Imagine a regular, repeating pattern of points in space, like the corners of a tiled floor extending infinitely in all directions. This is a simplified view of a mathematical lattice. Cryptographers use lattices in higher dimensions (many more than 2 or 3). Certain problems involving these high-dimensional lattices, like finding the shortest non-zero vector or the closest vector to a given point, are believed to be extremely hard to solve, even for quantum computers. This computational hardness is being harnessed for the next generation of cryptographic systems known as &quot;lattice-based cryptography.&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;With these basic concepts in mind, let&#x27;s explore how number theory provides the powerful, subtle tools for cutting-edge privacy-preserving technologies.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
