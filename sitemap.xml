@@ -7,18 +7,7 @@
         <loc>https://toreini.github.io/about/</loc>
     </url>
     <url>
-        <loc>https://toreini.github.io/blog/</loc>
-    </url>
-    <url>
-        <loc>https://toreini.github.io/blog/first-post/</loc>
-        <lastmod>2025-06-10</lastmod>
-    </url>
-    <url>
-        <loc>https://toreini.github.io/blog/number-theory-privacy-basics/</loc>
-        <lastmod>2025-08-08</lastmod>
-    </url>
-    <url>
-        <loc>https://toreini.github.io/blog/page/1/</loc>
+        <loc>https://toreini.github.io/projects/</loc>
     </url>
     <url>
         <loc>https://toreini.github.io/publications/</loc>
@@ -27,21 +16,9 @@
         <loc>https://toreini.github.io/research/</loc>
     </url>
     <url>
+        <loc>https://toreini.github.io/standardisation/</loc>
+    </url>
+    <url>
         <loc>https://toreini.github.io/tags/</loc>
-    </url>
-    <url>
-        <loc>https://toreini.github.io/tags/cryptography/</loc>
-    </url>
-    <url>
-        <loc>https://toreini.github.io/tags/foundation/</loc>
-    </url>
-    <url>
-        <loc>https://toreini.github.io/tags/intro/</loc>
-    </url>
-    <url>
-        <loc>https://toreini.github.io/tags/number-theory/</loc>
-    </url>
-    <url>
-        <loc>https://toreini.github.io/tags/privacy/</loc>
     </url>
 </urlset>
