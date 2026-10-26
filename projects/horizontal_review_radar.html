@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizontal Review Radar — Global Privacy Control</title>
+<style>
+:root{--bg:#f4f6f8;--panel:#fff;--ink:#17212b;--muted:#637180;--line:#dce3e9;--blue:#1769aa;--blue2:#dceeff;--green:#147d5a;--greenbg:#e1f5ed;--amber:#946200;--amberbg:#fff2d2;--red:#a33a3a;--redbg:#fde8e8;--greybg:#edf1f4;--shadow:0 8px 28px rgba(25,43,58,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.shell{max-width:1320px;margin:auto;padding:28px 26px 48px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border-radius:13px;background:#153c5b;color:white;display:grid;place-items:center;font-weight:800;letter-spacing:-1px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:800;color:var(--muted)}h1{font-size:24px;line-height:1.15;margin:3px 0 0;letter-spacing:-.04em}.topright{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.pill{font-size:12px;padding:6px 10px;border-radius:999px;font-weight:700;background:var(--greybg);color:#45515c}.button{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fff;color:var(--ink);font-weight:750;cursor:pointer}.button.primary{background:#153c5b;border-color:#153c5b;color:#fff}.button:disabled{opacity:.6;cursor:wait}
+.hero{background:#153c5b;color:white;border-radius:20px;padding:27px 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;box-shadow:var(--shadow);margin-bottom:18px}.hero h2{font-size:27px;letter-spacing:-.04em;margin:5px 0 8px}.hero p{margin:0;color:#d9e8f4;max-width:760px}.hero .eyebrow{color:#a9cce4}.hero-stats{display:flex;gap:22px;align-items:center}.stat{min-width:84px}.stat strong{font-size:29px;display:block;letter-spacing:-.05em}.stat span{font-size:12px;color:#c3d9e8}
+.notice{background:#fff9e9;border:1px solid #f0dfb1;color:#654d12;padding:12px 15px;border-radius:12px;margin:0 0 22px;font-size:13px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:25px 0 13px}.section-head h3{margin:0;font-size:17px;letter-spacing:-.02em}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.area{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px 16px;box-shadow:var(--shadow);min-width:0}.area-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.area h4{margin:0;font-size:15px}.icon{width:30px;height:30px;border-radius:9px;background:var(--blue2);color:var(--blue);display:grid;place-items:center;font-weight:850;font-size:12px}.status{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;border-radius:999px;padding:5px 8px;margin:13px 0 8px}.status.pending{background:var(--amberbg);color:var(--amber)}.status.unknown{background:var(--greybg);color:#53616e}.status.active{background:var(--blue2);color:var(--blue)}.status.done{background:var(--greenbg);color:var(--green)}.status.blocked{background:var(--redbg);color:var(--red)}.percent{font-size:24px;font-weight:800;letter-spacing:-.05em;margin-bottom:8px}.track{height:7px;background:#e9edf1;border-radius:99px;overflow:hidden;margin-bottom:11px}.fill{height:100%;border-radius:99px;background:#287bb5}.area p{font-size:12px;color:var(--muted);margin:0 0 11px;min-height:49px}.evidence{font-size:12px;font-weight:750;display:block;overflow-wrap:anywhere}.small{font-size:11px;color:var(--muted);margin-top:7px}
+.lower{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:22px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow);min-width:0}.panel h3{font-size:16px;margin:0 0 4px}.sub{font-size:12px;color:var(--muted);margin-bottom:17px}.step{display:grid;grid-template-columns:28px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:start}.step:last-child{border-bottom:0;padding-bottom:0}.stepnum{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:var(--greybg);font-size:12px;font-weight:800;color:#52606b}.stepnum.on{background:var(--blue2);color:var(--blue)}.step strong{display:block;font-size:13px}.step p{margin:3px 0 0;font-size:12px;color:var(--muted)}.tag{font-size:11px;font-weight:750;border-radius:6px;padding:5px 7px;background:var(--greybg);white-space:nowrap}.tag.warn{background:var(--amberbg);color:var(--amber)}.feed{display:flex;flex-direction:column;gap:13px}.event{display:grid;grid-template-columns:9px 1fr;gap:10px}.dot{width:8px;height:8px;border-radius:50%;background:#287bb5;margin-top:6px}.event strong{font-size:13px}.event p{margin:3px 0 0;font-size:12px;color:var(--muted)}.event .date{font-size:11px;color:var(--muted);margin-top:4px}
+.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;color:var(--muted);font-size:11px}.loading{display:none;color:var(--blue);font-size:12px;font-weight:700}.loading.show{display:inline}.sources{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.sources a{border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-size:11px;font-weight:700;background:#fff}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-stats{justify-content:flex-start}.lower{grid-template-columns:1fr}}
+@media(max-width:650px){.shell{padding:18px 13px 32px}.top{align-items:flex-start;flex-direction:column}.topright{width:100%;justify-content:space-between}.hero{padding:21px}.hero h2{font-size:23px}.hero-stats{gap:18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.area{padding:14px}.area p{min-height:65px}.section-head{align-items:flex-start;flex-direction:column}}
+@media(max-width:390px){.grid{grid-template-columns:1fr}.area p{min-height:0}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div class="brand"><div class="mark">HR</div><div><div class="eyebrow">W3C standards · review intelligence</div><h1>Horizontal Review Radar</h1></div></div>
+    <div class="topright"><span class="pill">PROTOTYPE · ONE SPEC</span><button id="refresh" class="button primary">↻ Refresh live data</button></div>
+  </header>
+  <section class="hero">
+    <div><div class="eyebrow">Current case study · Privacy Working Group</div><h2>Global Privacy Control (GPC)</h2><p>A live view of the review trail for a specification seeking Candidate Recommendation. Review progress is derived from public workflow evidence, not an official W3C completion score.</p><div class="sources"><a href="https://www.w3.org/TR/2026/WD-gpc-20260924/" target="_blank" rel="noreferrer">Published draft ↗</a><a href="https://github.com/w3c/gpc" target="_blank" rel="noreferrer">Spec repository ↗</a><a href="https://www.w3.org/guide/documentreview/" target="_blank" rel="noreferrer">Review process ↗</a></div></div>
+    <div class="hero-stats"><div class="stat"><strong id="knownCount">2</strong><span>review trails found</span></div><div class="stat"><strong id="openCount">2</strong><span>open requests</span></div><div class="stat"><strong id="unknownCount">3</strong><span>areas unverified</span></div></div>
+  </section>
+  <div class="notice"><strong>Read this carefully:</strong> “Unknown” means this prototype has not found reliable public evidence for that stage. It does not mean a group has not reviewed the spec. Percentages are a simple stage-completion indicator for the demo, not an official W3C metric.</div>
+  <div class="section-head"><div><h3>Progress by horizontal review area</h3><p>Evidence found across public review trackers and the specification repository.</p></div><span id="lastUpdated" class="small">Evidence snapshot: 26 Oct 2026 · live refresh available</span></div>
+  <section class="grid" id="areas">
+    <article class="area" data-area="tag"><div class="area-top"><h4>Technical architecture</h4><div class="icon">TAG</div></div><span class="status pending">● Untriaged</span><div class="percent">25%</div><div class="track"><div class="fill" style="width:25%"></div></div><p>TAG review request is open. No review outcome is evidenced in the captured issue.</p><a class="evidence" href="https://github.com/w3ctag/design-reviews/issues/1265" target="_blank" rel="noreferrer">Issue #1265 ↗</a><div class="small">Request opened 14 Aug 2026</div></article>
+    <article class="area" data-area="apa"><div class="area-top"><h4>Accessibility</h4><div class="icon">APA</div></div><span class="status pending">● Pending assignment</span><div class="percent">25%</div><div class="track"><div class="fill" style="width:25%"></div></div><p>Review requested; labelled pending and waiting for a reviewer to be assigned.</p><a class="evidence" href="https://github.com/w3c/a11y-request/issues/191" target="_blank" rel="noreferrer">Issue #191 ↗</a><div class="small">Requested 15 Oct · deadline 26 Dec 2026</div></article>
+    <article class="area" data-area="i18n"><div class="area-top"><h4>Internationalisation</h4><div class="icon">i18n</div></div><span class="status unknown">? Not verified</span><div class="percent">—</div><div class="track"><div class="fill" style="width:0%;background:#9aa8b4"></div></div><p>No matching review request verified in this initial evidence snapshot.</p><a class="evidence" href="https://github.com/w3c/i18n-request/issues" target="_blank" rel="noreferrer">Inspect i18n tracker ↗</a><div class="small">Absence of evidence ≠ no review</div></article>
+    <article class="area" data-area="privacy"><div class="area-top"><h4>Privacy</h4><div class="icon">PING</div></div><span class="status unknown">? Not verified</span><div class="percent">—</div><div class="track"><div class="fill" style="width:0%;background:#9aa8b4"></div></div><p>GPC is a Privacy WG work item; that alone does not prove a separate horizontal review is complete.</p><a class="evidence" href="https://github.com/w3c/privacy-request/issues" target="_blank" rel="noreferrer">Inspect privacy tracker ↗</a><div class="small">External review status not confirmed</div></article>
+    <article class="area" data-area="security"><div class="area-top"><h4>Security</h4><div class="icon">SEC</div></div><span class="status active">● Self-review exists</span><div class="percent">25%</div><div class="track"><div class="fill" style="width:25%"></div></div><p>The spec repository includes a Security &amp; Privacy self-review questionnaire. External review status is unverified.</p><a class="evidence" href="https://github.com/w3c/gpc/blob/main/security-self-review-questionnaire.md" target="_blank" rel="noreferrer">Self-review ↗</a><div class="small">Self-review is not external sign-off</div></article>
+  </section>
+  <section class="lower">
+    <div class="panel"><h3>Review lifecycle</h3><div class="sub">The observable steps that move a review from request to resolution.</div>
+      <div class="step"><div class="stepnum on">1</div><div><strong>Published draft and self-review</strong><p>GPC has a dated Working Draft and a linked security/privacy questionnaire.</p></div><span class="tag">Evidence found</span></div>
+      <div class="step"><div class="stepnum on">2</div><div><strong>Formal review requests</strong><p>TAG and APA request records are discoverable in their public trackers.</p></div><span class="tag">Partial</span></div>
+      <div class="step"><div class="stepnum on">3</div><div><strong>Reviewer triage and findings</strong><p>APA request remains pending assignment; TAG request is marked untriaged.</p></div><span class="tag warn">In progress</span></div>
+      <div class="step"><div class="stepnum">4</div><div><strong>Specification issues answered</strong><p>Link each finding to the spec issue, WG response, and any follow-up action.</p></div><span class="tag">Not verified</span></div>
+      <div class="step"><div class="stepnum">5</div><div><strong>Resolution and transition evidence</strong><p>Record resolved and unresolved findings, plus the evidence used for the next maturity transition.</p></div><span class="tag">Not verified</span></div>
+    </div>
+    <div class="panel"><h3>Evidence trail</h3><div class="sub">Selected public records that explain the current picture.</div><div class="feed">
+      <div class="event"><div class="dot"></div><div><strong><a href="https://github.com/w3c/a11y-request/issues/191" target="_blank" rel="noreferrer">APA review requested</a></strong><p>Working Draft approaching Candidate Recommendation; labelled REVIEW REQUESTED and pending.</p><div class="date">15 Oct 2026 · Issue #191</div></div></div>
+      <div class="event"><div class="dot"></div><div><strong><a href="https://github.com/w3ctag/design-reviews/issues/1265" target="_blank" rel="noreferrer">TAG horizontal review opened</a></strong><p>Review request includes the spec, explainer, alternatives, and WG request link. Current progress shown as untriaged.</p><div class="date">14 Aug 2026 · Issue #1265</div></div></div>
+      <div class="event"><div class="dot"></div><div><strong><a href="https://github.com/w3c/gpc/issues/151" target="_blank" rel="noreferrer">Implementation/spec discussion</a></strong><p>A closed issue discusses an inconsistency between the specification and Web Platform Tests' TestDriver implementation. This is technical discussion, not proof of horizontal-review closure.</p><div class="date">5 Aug 2026 · Issue #151</div></div></div>
+      <div class="event"><div class="dot"></div><div><strong><a href="https://github.com/w3c/gpc/blob/main/security-self-review-questionnaire.md" target="_blank" rel="noreferrer">Security and privacy self-review published</a></strong><p>The repository documents the feature's exposed signal and other security/privacy considerations.</p><div class="date">Repository evidence</div></div></div>
+    </div></div>
+  </section>
+  <div class="footer"><span id="fetchStatus">Demo data is grounded in public W3C/GitHub records; use refresh to re-check available endpoints.</span><span>Built as a single-file proof of concept · No GitHub token required</span></div>
+</div>
+<script>
+const endpoints = [
+ {key:"tag", url:"https://api.github.com/repos/w3ctag/design-reviews/issues/1265"},
+ {key:"apa", url:"https://api.github.com/repos/w3c/a11y-request/issues/191"},
+ {key:"i18n", url:"https://api.github.com/search/issues?q="+encodeURIComponent("repo:w3c/i18n-request GPC")},
+ {key:"privacy", url:"https://api.github.com/search/issues?q="+encodeURIComponent("repo:w3cping/privacy-request GPC")},
+ {key:"security", url:"https://api.github.com/search/issues?q="+encodeURIComponent("repo:w3c/security-request GPC")},
+ {key:"gpc", url:"https://api.github.com/repos/w3c/gpc/issues/151"}
+];
+const areaMeta = {
+ tag:{title:"Technical architecture",known:25,link:"https://github.com/w3ctag/design-reviews/issues/1265",unknown:false},
+ apa:{title:"Accessibility",known:25,link:"https://github.com/w3c/a11y-request/issues/191",unknown:false},
+ i18n:{title:"Internationalisation",known:null,link:"https://github.com/w3c/i18n-request/issues",unknown:true},
+ privacy:{title:"Privacy",known:null,link:"https://github.com/w3c/privacy-request/issues",unknown:true},
+ security:{title:"Security",known:25,link:"https://github.com/w3c/gpc/blob/main/security-self-review-questionnaire.md",unknown:false}
+};
+function updateArea(key, issue) {
+ const el=document.querySelector(`[data-area="${key}"]`); if(!el||!issue)return;
+ const labelText=(issue.labels||[]).map(x=>typeof x==="string"?x:x.name).join(" ").toLowerCase();
+ const title=(issue.title||"").toLowerCase();
+ let status="● Open", cls="pending", pct=25, description="";
+ if(issue.state==="closed"){status="● Closed";cls="done";pct=100;description="The tracker issue is closed. This does not, by itself, prove the review is complete."}
+ else if(labelText.includes("pending")){status="● Pending assignment";cls="pending";pct=25;description="Review requested; tracker indicates a pending step."}
+ else if(labelText.includes("untriaged")){status="● Untriaged";cls="pending";pct=25;description="Review request is open and awaiting triage."}
+ else if(labelText.includes("in progress")){status="● In progress";cls="active";pct=50;description="Tracker labels indicate work is in progress."}
+ else {description="Open review issue found. Inspect the source for the current review state."}
+ const st=el.querySelector(".status");st.className="status "+cls;st.textContent=status;
+ el.querySelector(".percent").textContent=pct+"%";
+ el.querySelector(".fill").style.width=pct+"%";
+ if(description)el.querySelector("p").textContent=description;
+ const evidence=el.querySelector(".evidence"); evidence.href=issue.html_url||areaMeta[key].link; evidence.textContent=`${issue.repository_url?issue.repository_url.split("/").slice(-2).join("/"):"GitHub issue"} #${issue.number} ↗`;
+ const small=el.querySelector(".small");small.textContent="Updated from GitHub API · "+new Date(issue.updated_at).toLocaleDateString();
+}
+function updateSearchArea(key, result){
+ const el=document.querySelector(`[data-area="${key}"]`);
+ if(!el||!result)return;
+ const items=result.items||[];
+ if(items.length){
+   const issue=items.find(x=>/global privacy control|\bgpc\b/i.test((x.title||"")+" "+(x.body||"")))||items[0];
+   updateArea(key,issue);
+   const p=el.querySelector("p");
+   p.textContent="Matching public tracker issue found. Check the linked record and its labels for the current review stage.";
+ } else {
+   const st=el.querySelector(".status");st.className="status unknown";st.textContent="? No match found";
+   el.querySelector(".percent").textContent="—";
+   el.querySelector(".fill").style.width="0%";
+   el.querySelector("p").textContent="GitHub search returned no matching GPC issue in this tracker. This is not proof that no review happened.";
+   el.querySelector(".small").textContent="Live search completed · no matching record";
+ }
+}
+async function refresh(){
+ const btn=document.getElementById("refresh"), label=document.getElementById("fetchStatus");
+ btn.disabled=true;btn.textContent="↻ Refreshing…";label.textContent="Checking public GitHub issue trackers…";
+ let success=0,failed=0;const found={};
+ try {
+  const results=await Promise.all(endpoints.map(async e=>{
+   try{const r=await fetch(e.url,{headers:{Accept:"application/vnd.github+json"}});if(!r.ok)throw new Error("HTTP "+r.status);return {key:e.key,data:await r.json()}}
+   catch(err){return {key:e.key,error:err.message}}
+  }));
+  for(const r of results){
+   if(r.data){
+    success++;found[r.key]=r.data;
+    if(r.key==="tag")updateArea("tag",r.data);
+    if(r.key==="apa")updateArea("apa",r.data);
+    if(["i18n","privacy","security"].includes(r.key))updateSearchArea(r.key,r.data);
+   }else failed++;
+  }
+  if(success){document.getElementById("lastUpdated").textContent="Last checked: "+new Date().toLocaleString();label.textContent=`Live refresh complete: ${success} GitHub endpoints checked; ${failed} unavailable. Search results and issue labels are evidence, not official completion judgements.`}
+  else label.textContent="Live API unavailable in this browser/session. Showing the sourced snapshot; use the source links to verify.";
+ } catch(e){label.textContent="Refresh failed; showing the sourced snapshot."}
+ finally{btn.disabled=false;btn.textContent="↻ Refresh live data"}
+}
+document.getElementById("refresh").addEventListener("click",refresh);
+</script>
+</body>
+</html>
